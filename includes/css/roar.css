@@ -1,0 +1,214 @@
+/* Dev code section, this will be removed when finalised (@font-face property used instead) */
+
+	@import url(http://fonts.googleapis.com/css?family=Maven+Pro:900);
+	@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+.testclass{
+	height:100px;
+	background-color:#0f0;
+	border:1px solid #000}
+	
+/* End dev code section */
+	
+*{
+	box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	text-rendering:optimizeLegibility}
+
+body{
+	font-family:'Raleway',sans-serif;
+	margin:0;
+	background-color:#F7F0DC;
+	width:100%}
+
+form>*,blockquote,ul,input,textarea,button,select{
+	display:block;
+	margin:1% auto;
+	padding:7px;
+	font-size:1em;
+	border-radius:2px;
+	border:1px solid transparent}
+
+input:hover,input:active,textarea:hover,textarea:active,select:hover,select:active{
+	border:1px solid #F89B7C}
+
+button:active{
+	border:1px inset #F89B7C}
+
+p,textarea,blockquote{
+	margin:15px auto;
+	display:block;
+	max-width:1000px}
+
+blockquote{
+	padding:10px 10%;
+	line-height:120%;
+	background:rgb(54,54,54);
+	background:rgba(54,54,54,0.1);
+	width:60%;
+	min-width:240px;
+	font-family:serif;
+	font-size:1.5em;
+	position:relative;
+	text-align:center}
+
+blockquote:before,blockquote:after{
+	font-size:700%;
+	color:#fff;
+	text-shadow:3px 3px #A07A53;
+	content:"\201C";
+	position:absolute;
+	z-index:-100}
+
+blockquote:before{
+	top:60px;
+	left:10px}
+
+blockquote:after{
+	bottom:-15px;
+	right:10px;
+	content:"\201D"}
+
+h1{
+	clear:both;
+	font-size:225%;
+	color:#fff;
+	text-align:center;
+	margin:0 0 3%;
+	text-shadow:3px 3px #A07A53;
+	background-color:#282827;
+	text-transform:uppercase;
+	font-family:'Maven Pro',sans-serif;
+	width:100%;
+	padding:4% 0;
+	display:inline-block}
+
+h1:before,h1:after{
+	height:0.1em;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #fff;
+	width:12%;
+	display:inline-block;
+	content:" ";
+	margin-bottom:10px}
+
+textarea{
+	clear:both;
+	width:100%;
+	max-width:1000px}
+
+input[type="submit"],button{
+	padding:8px 15px;
+	text-transform:uppercase;
+	background-color:#F96A39;
+	color:#fff;
+	text-shadow:1px 1px #000}
+
+p{
+	line-height:1.4;
+	width:80%;
+	max-width:1000px;
+	margin:0 auto 20px}
+
+section:after{
+	content:"";
+	display:block;
+	margin:3% auto;
+	width:20%;
+	border-bottom:1px solid #A07A53}
+
+
+.half,.third,.third:nth-child(2):after{
+	float:right}
+
+.half:last-child,.third:last-child{
+	margin-left:10px}
+
+.half:first-child,.third:first-child{
+	margin-right:10px}
+
+.half:first-child,.third:first-child,.third:nth-child(2):before{
+	float:left}
+
+.third:nth-child(2){
+	float:none;
+	display:inline-block}
+
+.half{
+	width:48%}
+
+.third{
+	width:32%}
+
+ul{
+	padding:0}
+
+li{
+	float:left;
+	margin:5px 0}
+
+li:nth-child(odd){
+	margin-right:10px}
+	
+.code,code{
+	font-family:monospace}
+
+@media only screen and(max-width:940px){
+	h1:before,h1:after{
+		display:block;
+		margin:15px auto}
+
+	.third{
+		width:48%;
+		float:left}
+
+	.third:last-child{
+		margin:0}
+
+	li:nth-child(odd){
+		margin-right:0}
+}
+
+@media only screen and(max-width:700px){
+	blockquote:before,blockquote:after{
+		font-size:500%;
+		width:100%;
+		position:static;
+		display:block;
+		text-align:left;
+		margin:30px 0 -20px}
+
+	blockquote{
+		padding:10px}
+
+	blockquote:after{
+		text-align:right}
+
+	h1{
+		padding:2% 0}
+
+	.third,.half{
+		width:100%;
+		float:none;
+		margin:0}
+}
+
+@media only screen and (max-width:300px){
+	/* Kinda an edge-case, I know, but I can't leave the tiny screens out! */
+	select,button{
+		width:100%}
+	}
+
+body:after{
+	font-family:sans-serif;
+	display:block;
+	width:100%;
+	content:"Built with \2665  and roar.css.";
+	padding:1em 0;
+	text-align:center;
+	color:#fff;
+	box-sizing:border-box;
+	font-size:12px;
+	margin-top:25px;
+	background-color:#282827;
+	clear:both}

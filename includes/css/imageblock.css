@@ -1,0 +1,16 @@
+img.imageblock{
+	content:"";
+	position:relative;
+	color:#fff;
+	background-color:#00A78D}
+
+img.imageblock:after{
+	content:attr(title);
+	position:absolute;
+	top:50%;
+	width:100%;
+	margin:-0.4em -0.1em;
+	text-align:center}
+
+img.imageblock:hover:after{
+	content:attr(height)" by " attr(width)}

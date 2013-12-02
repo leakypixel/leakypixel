@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	<meta name="viewport" content="width=device-width height=device-height minimum-scale=1" />
+    <title>it does not do this!</title>
+    <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+	function patrice(){
+		var catchphrases = ["Children","It does not do this","I will have you spayed","Titty!","Oh God so old","Rude!","I take","Faggity?","Very well then", "Ah, yes", "Well, but you see", "What has it done now?", "Naughty, rude children!", "HAHAHAA! *says something in dutch as his laughter fades*"],
+		nicknames = ["the German", "ultrafunk", "terminator", "the Great Bumble"],
+		catchphraseElm = document.getElementById("catchphrase"),
+		nicknameElm = document.getElementById("nickname");
+		catchphraseElm.innerHTML = catchphrases[Math.floor(Math.random() * catchphrases.length)];
+		nicknameElm.innerHTML = nicknames[Math.floor(Math.random() * nicknames.length)];
+	}
+    </script>
+    
+    <style type="text/css">
+	body {
+		height: 100%;
+		margin: 0;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	noscript {
+		display: block;
+		width: 100%;
+		color: #fff;
+		background: #F00;
+		font-family: 'Arial', sans-serif;
+		padding: 8px;
+	}
+	.video-wrapper {
+		position: relative;
+		padding-bottom: 45%;
+		padding-top: 25px;
+		height: 80%;
+		display: block;
+		width: 100%;
+	}
+	.video-wrapper iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	h1 {
+		font-family: 'Cinzel Decorative', cursive;
+		text-align: center;
+		font-size: 40px;
+		margin: 10px auto 0;
+		padding: 0 8px;
+		max-width: 80%;
+	}
+	i {
+		font-family: 'Arial', sans-serif;
+		font-size: 14px;
+		font-weight: 300;
+		text-align: center;
+		margin: 0 auto;
+		display: block;
+		padding: 0 8px 8px;
+		
+	}
+    </style>
+  </head>
+  <body onload="patrice();">
+	<noscript>Turn your fucking javascript on.</noscript>
+    <div class="video-wrapper"><iframe src="//www.youtube.com/embed/0LsarkOaR-M?autoplay=1&rel=0&showinfo=0&modestbranding=1&controls=0&html5=1" frameborder="0" allowfullscreen></iframe></div>
+    <h1>&ldquo;<span id="catchphrase">I'm loading, Children!</span>&rdquo;</h1>
+    <i>Patrice "<span id="nickname">ultrafunk</span>" Timms, practically every day since 14th November 1986.</i>
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-45755203-1', 'itdoesnotdothis.de');
+	  ga('send', 'pageview');
+	</script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mess to CSS</title>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	<meta name="viewport" content="width=device-width height=device-height minimum-scale=1" />
+
+	<link rel='stylesheet'  href='includes/css/reset.css' type='text/css' media='all' />
+	<link rel='stylesheet'  href='includes/css/global.css' type='text/css' media='all' />
+	<link rel='stylesheet'  href='includes/css/roar.css' type='text/css' media='all' />
+	<link rel='stylesheet'  href='includes/css/cssreformat.css' type='text/css' media='all' />
+</head>
+
+<body>
+	<a href="/" title="home" class="home">Home</a>
+	<h1>
+		Mess to CSS
+	</h1>
+	
+	<p>
+		Currently a combination of two unfinished side-projects, roar.css - and MessToCSS. Please bear in mind that both roar.css and MessToCSS are still very much in development, and while MessToCSS is probably fine for day to day use, always check it's output thoroughly before using!
+	</p>
+	
+	<form>
+		<textarea id="textbox" class="cleardefault code" >Enter your CSS to process here.</textarea>
+		<!-- Kinda horrid to have this underneath, there's a few better ways of doing it, but I'll be working on that later - deal with the ugly for now haha -->
+		<textarea id="textbox2" class="cleardefault" >Enter your reference CSS here (this will only be cleaned, no other processing will be performed).</textarea>
+		
+		<button type="button" onclick="messToCSS();" id="messtocss">
+			Process
+		</button>
+		
+		<select id="selectpreset" onchange="setOpts(this.value);" >
+			<option value="nopreset" selected disabled>Select a preset</option>
+			<option value="human">Human</option>
+			<option value="structure">Structure only</option>
+			<option value="machine">Machine</option>
+			<option value="balanced">Balanced</option>
+		</select>
+		
+		<ul id="optionslist">
+			<li><input type="checkbox" name="linebreaks" id="linebreaks" value="true" title="Line break after properties and selectors" /><label for="linebreaks" >Line break after properties and selectors</label></li>
+			<li><input type="checkbox" name="clsbraceownline" id="clsbraceownline" value="true" title="Closing brace on it's own line" /><label for="clsbraceownline" >Closing brace on it's own line</label></li>
+			<li><input type="checkbox" name="blankseparator" id="blankseparator" value="true" title="Blank line after declaration" /><label for="blankseparator" >Blank line after declaration</label></li>
+			<li><input type="checkbox" name="indentprops" id="indentprops" value="true" title="Indent properties" /><label for="indentprops" >Indent properties</label></li>
+			<li><input type="checkbox" name="bgie7fix" id="bgie7fix" value="true" title="Preserve/fix background property for IE7" /><label for="bgie7fix" >Preserve/fix background property for IE7</label></li>
+			<li><input type="checkbox" name="commaspace" id="commaspace" value="true" title="Add spaces after commas" /><label for="commaspace" >Add spaces after commas</label></li>
+			<li><input type="checkbox" name="colonspace" id="colonspace" value="true" title="Add spaces after colons" /><label for="colonspace" >Add spaces after colons</label></li>
+			<li><input type="checkbox" name="openspace" id="openspace" value="true" title="Add spaces before opening braces" /><label for="openspace" >Add spaces before opening braces</label></li>
+			<li><input type="checkbox" name="remsemicolons" id="remsemicolons" value="true" title="Remove trailing semicolons" /><label for="remsemicolons" >Remove trailing semicolons</label></li>
+			<li><input type="checkbox" name="remunitzero" id="remunitzero" value="true" title="Remove units on zero values" /><label for="remunitzero" >Remove units on zero values</label></li>
+			<li><input type="checkbox" name="reducehex" id="reducehex" value="true" title="Reduce down hex codes where possible" /><label for="reducehex" >Reduce down hex codes where possible</label></li>
+			<li><input type="checkbox" name="remempties" id="remempties" value="true" title="Remove empty properties" /><label for="remempties" >Remove empty properties</label></li>
+			<li><input type="checkbox" name="remcomments" id="remcomments" value="true" title="Remove comments" /><label for="remcomments" >Remove comments</label></li>
+			<li><input type="checkbox" name="commentline" id="commentline" value="true" title="Put comments on their own line" /><label for="commentline" >Put comments on their own line</label></li>
+			<li><input type="checkbox" name="specialspaces" id="specialspaces" value="true" title="Add spaces either side of special selector operators" /><label for="specialspaces" >Add spaces either side of special selector operators</label></li>
+			<li><input type="checkbox" name="remdupes" id="remdupes" value="true" title="Compare and remove duplicated properties" onchange="showCompBox();" /><label for="remdupes">Compare and remove duplicated properties</label></li>
+			<li id="props"><input type="text" value="Enter the CSS properties to remove, separated by a space." class="cleardefault"/></li>
+		</ul>
+		
+	</form>
+	<script src="includes/js/html5shiv.js" type="text/javascript"></script>
+	<script src="includes/js/prefixfree.min.js" type="text/javascript"></script>
+	<script src="includes/js/common.js" type="text/javascript"></script>
+	<script src="includes/js/cssclean.js" type="text/javascript"></script>
+	<script src="includes/js/cleardefaults.js" type="text/javascript"></script>
+	<script src="includes/js/analytics.js" type="text/javascript"></script>
+</body>
+</html>

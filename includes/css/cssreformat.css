@@ -1,0 +1,96 @@
+/* A couple of tweaks for the CSS reformat pages that wouldn't be sensible to put in roar.css */
+form{
+	width:80%;
+	margin:0 auto;
+	max-width:1000px}
+
+textarea{
+	height:22em;
+	margin-top:0}
+
+#optionslist{
+	padding:5px;
+	border-radius:5px;
+	background-color:#CBB39A;
+	display:inline-block;
+	width:100%;
+	margin-top:15px}
+
+#optionslist li{
+	width:49%}
+
+#optionslist label{
+	line-height:20px;
+	margin-left:5px;
+	width:88%;
+	float:left}
+
+#optionslist input[type="checkbox"]{
+	display:block;
+	float:left;
+	width:15px;
+	margin:3px}
+
+#messtocss{
+	float:right}
+
+#selectpreset{
+	float:left;
+	width:30%;
+	min-width:150px;
+	max-width:300px}
+
+#textbox2{
+	display:none;
+	clear:right}
+	
+li#props{
+	float:none;
+	width:100%}
+	
+#props input{
+	margin:10px auto 0;
+	display:inline-block;
+	width:100%}
+
+#props:before{
+	float:left}
+
+#props:after{
+	float:right}
+	
+a.home{
+	color:#fff}
+
+@media only screen and (max-width:300px){
+	#selectpreset{
+		width:100%}
+	}
+
+@media only screen and(max-width:400px){
+	form,p{
+		width:90%}
+	#optionslist li{
+		display: none}
+	#optionslist:before{
+		content:"Hover, or press and hold to show options.";
+		display:block;
+		width:100%;
+		text-align:center}
+	#optionslist:hover li{
+		display:block}
+	#optionslist:hover:before{
+		display:none}
+}
+
+@media only screen and(max-width:700px){
+	textarea{
+		height:6em}
+}
+
+@media only screen and(max-width:940px){
+	#optionslist li{
+		width:100%}
+	textarea{
+		height:16em}
+}

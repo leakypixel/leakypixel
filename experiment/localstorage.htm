@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>localstorage/eval</title>
+    <script type="text/javascript">
+    "use strict";
+    
+    var test = {};
+    
+    test.weapon = 10;
+    test.attack = '((3*(d*6))*(2*w))+s';
+    test.stat = 4;
+ 
+    localStorage.setItem('test', JSON.stringify(test));
+ 
+    //Retrieve the object and assign it to a variable
+    var test = JSON.parse(localStorage.getItem('test')),
+        w = test.weapon,
+        s = test.stat,
+        d = Math.random(),
+        testString = eval(test.attack);
+        
+    document.write(testString);
+
+    </script>
+
+  </head>
+  <body>
+
+  </body>
+</html>

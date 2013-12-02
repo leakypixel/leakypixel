@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Random link positions in javascript</title>
+    <style type="text/css">
+      .randomise{
+        height:10px;
+        width:10px;
+        display:block;
+        position:absolute;
+        background-color:#BADA55;
+        }
+    </style>
+    <script type="text/javascript">
+    function randomLinks(){
+      var links = document.getElementsByClassName("randomise");
+      for (var i = links.length-1; i > -1; i--) {
+        links[i].style.top = Math.floor((Math.random()*(document.documentElement.clientHeight-10)))+"px";
+        links[i].style.left = Math.floor((Math.random()*(document.documentElement.clientWidth-10)))+"px";
+      };
+    };
+    </script>
+  </head>
+  <body onload="randomLinks();">
+    <a class="randomise" href="google.com"></a>
+    <a class="randomise" href="google.com"></a>
+    <a class="randomise" href="google.com"></a>
+    <a class="randomise" href="google.com"></a>
+    <a class="randomise" href="google.com"></a>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+/* Basic styling */
+* {
+  margin: 1%;
+  line-height: 160%;
+}
+
+body {
+  font-size: 1.4vw;
+  font-weight: 300;
+}
+
+header {
+  margin: 0 0 1% 0;
+  padding: 2%;
+}
+
+section {
+  max-width: 1280px;
+  margin: 1% auto;
+  display: block;
+}
+
+div {
+  padding: 1%;
+}
+
+p, ul, li {
+  font-size: 1em;
+}
+
+ul {
+  padding-left: 3%;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 5%;
+  font-weight: 400;
+}
+
+img {
+  width: 100%;
+}
+
+img.small {
+  max-width: 400px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+hr {
+  height: 2px;
+  padding: 0;
+  border: none;
+  background-color: #ccc;
+  border-radius: 100%;
+  margin: 4em 0;
+}
+
+hr.pagebreak {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+}
+
+@media print{
+  a:after {
+    content: " (" attr(href) ") ";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+
+  hr.pagebreak {
+    page-break-after: always;
+  }
+  
+  .nopagebreak, h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+}

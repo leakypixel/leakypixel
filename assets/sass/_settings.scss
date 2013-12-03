@@ -1,0 +1,40 @@
+/* Font imports */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans'), local('OpenSans'), url(../fonts/open-sans.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Unibody8';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Unibody-8'), url(../fonts/unibody8.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Voltaire';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Voltaire'), url(../fonts/Voltaire.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Silkscreen'), url(../fonts/Silkscreen.woff) format('woff');
+}
+
+/* Typography */
+$headingTypeface: 'Silkscreen', sans-serif;
+$bodyTypeface: 'Open Sans', sans-serif;
+$rootFontSize: 1vw;
+
+/* Colours */
+$white: #fdfdfd;
+$black: #0c0c0c;
+$blockColour: #293332;
+$accentColour: #d6c60f;
+

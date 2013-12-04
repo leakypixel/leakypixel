@@ -7,13 +7,7 @@
     <link rel="stylesheet" href="assets/css/home.css">
   </head>
   <body>
-    <header data-speed="10" data-type="background">
-      <h1>leakypixel</h1>
-    </header>
-    <header data-speed="100" data-type="background">
-      <h1>leakypixel</h1>
-    </header>
-    <header data-speed="1000" data-type="background">
+    <header data-scrollspeed="0.1">
       <h1>leakypixel</h1>
     </header>
     <section></section>

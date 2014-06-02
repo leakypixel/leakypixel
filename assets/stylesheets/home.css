@@ -1,26 +1,60 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  }
-
 header {
-  width: 100%;
-  height: 45%;
-  border-bottom: 10px solid #000;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  padding: 5% 0;
+  height: 30%;
 }
 
-.message {
-  color: white;
-  font-size: 18px;
+header .do-not-use-the-word-awesome {
   display: block;
   margin: 0 auto;
   z-index: 10;
-  width: 75%;
-  background-color: rgba(0,0,0,0.35);
+  width: 80%;
+  color: #fdfdfd;
+}
+
+header .header-text {
   padding: 10px;
   border-radius: 3px;
+  margin: 0 auto;
+  max-width: 80%;
+  text-shadow: 2px 2px 4px #0c0c0c;
+  font-size: 24px;
+}
+.header-text p {
+  font-size: 1em;
+}
+
+.header-text h1 {
+  font-size: 2em;
+  padding: 0 2%;
+  margin: 2% 0;
+}
+
+header .my-ugly-mug {
+  border-radius: 50%;
+  width: 20%;
+  min-width: 120px;;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+
+@media only screen and (max-width:900px){
+  .do-not-use-the-word-awesome {
+    text-align: center;
+  }
+
+  header .header-text {
+    width: auto;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width:600px){
+  header .do-not-use-the-word-awesome,
+  header .header-text,
+  header .my-ugly-mug{
+    max-width: none;
+    float: none;
+    text-align: center;
+    font-size: 18px;
+  }
 }

@@ -16,7 +16,6 @@ var triangleCanvas = (function() {
     var header = this.canvas.parentElement,
     backgroundImage = "url(" + this.canvas.toDataURL() + ")";
     header.style.backgroundImage = backgroundImage;
-    header.style.backgroundColor = "rgb("+randomRGBColour()+")";
     header.removeChild(this.canvas);
   }
 
@@ -100,7 +99,7 @@ var triangleCanvas = (function() {
 document.addEventListener('DOMContentLoaded', function(){
   var triangleCanvases = document.getElementsByClassName("trianglecanvas");
   for (var x = 0; x < triangleCanvases.length; x++) {
-    var test = new triangleCanvas(triangleCanvases[x], 45);
+    var test = new triangleCanvas(triangleCanvases[x], 60);
     test.switchToBG();
   }
 });

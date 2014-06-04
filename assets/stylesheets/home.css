@@ -1,60 +1,42 @@
 header {
-  height: 30%;
-}
-
-header .do-not-use-the-word-awesome {
-  display: block;
-  margin: 0 auto;
-  z-index: 10;
-  width: 80%;
-  color: #fdfdfd;
+  min-height: 26vmax;
+  padding: 1vw;
+  background: linear-gradient(#f1c40f 45%, #fff 45%);
+  overflow: hidden;
 }
 
 header .header-text {
-  padding: 10px;
-  border-radius: 3px;
-  margin: 0 auto;
-  max-width: 80%;
-  text-shadow: 2px 2px 4px #0c0c0c;
-  font-size: 24px;
+  font-size: 1.4vmax;
 }
 .header-text p {
-  font-size: 1em;
+  font-size: 1.2em;
+  width: 100%;
 }
 
 .header-text h1 {
   font-size: 2em;
   padding: 0 2%;
-  margin: 2% 0;
+  margin: 0;
 }
 
 header .my-ugly-mug {
   border-radius: 50%;
-  width: 20%;
-  min-width: 120px;;
-  max-width: 280px;
+  width: 20vmax;
+  max-width: 240px;
   margin: 0 auto;
+  border: 10px solid #fff;
 }
 
-
-@media only screen and (max-width:900px){
-  .do-not-use-the-word-awesome {
-    text-align: center;
+@media only screen and (max-width:800px){
+  header {
+    background: linear-gradient(#fff 20%, #f1c40f 20%);
   }
 
-  header .header-text {
-    width: auto;
-    font-size: 20px;
-  }
-}
-
-@media only screen and (max-width:600px){
-  header .do-not-use-the-word-awesome,
   header .header-text,
   header .my-ugly-mug{
     max-width: none;
     float: none;
     text-align: center;
-    font-size: 18px;
+    display: block;
   }
 }

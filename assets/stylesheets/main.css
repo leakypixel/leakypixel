@@ -11,7 +11,7 @@ body, html {
 header {
   width: 100%;
   min-height: 10%;
-  border-bottom: 10px solid #0c0c0c;
+  border-bottom: 10px solid #fff;
   padding: 2% 0;
-  background-color: rgb(230, 230, 50);
+  background-color: #f1c40f;
 }

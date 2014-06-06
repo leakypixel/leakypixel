@@ -83,7 +83,7 @@ var triangleCanvas = (function() {
   }
 
   function layCanvas(canvas) {
-    var canvasContext = canvas.getContext('2d');
+    var canvasContext = canvas.getContext('2d'); 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight/2;
     return [canvas, canvasContext];

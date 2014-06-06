@@ -22,6 +22,7 @@
   "homepage": "https://github.com/leakypixel/leakypixel",
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-sass": "^0.7.3",
     "grunt-contrib-watch": "^0.6.1"
   }

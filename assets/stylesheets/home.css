@@ -1,36 +1,36 @@
 header {
-  min-height: 16vw;
-  padding: 1vw;
+  padding: 1vw 2vw;
   background: #293332;
-  overflow: hidden; }
+  overflow: hidden;
+  border-top: 4px solid #D6C60F;
+  font-size: 0.8vw; }
+  header h1 {
+    margin: 0.5vw 0 0 0; }
+  header h2 {
+    margin: 0 0 0.5vw 0; }
 
 .header-text {
-  color: #fff; }
-  .header-text p {
-    width: 100%;
-    padding: 0.2vw 1vw;
-    margin: 0; }
-  .header-text h1 {
-    font-size: 2em;
-    padding: 0.2vw 1vw;
-    margin: 0;
-    font-family: 'Unibody8'; }
+  padding: 0.1vw 2vw;
+  font-family: 'Unibody8';
+  color: #fff;
+  width: 80%;
+  float: left; }
 
 .my-ugly-mug {
   border-radius: 50%;
-  width: 12vw;
-  max-width: 240px;
+  max-width: 7em;
   margin: 0 auto;
-  border: 8px solid #fff; }
+  border: 0.4em solid #fff;
+  float: left; }
 
 @media only screen and (max-width: 800px) {
   header .header-text,
   header .my-ugly-mug {
-    max-width: none;
     float: none;
     text-align: center;
     display: block;
-    color: #fcfcfc; }
+    color: #fcfcfc;
+    width: 100%; }
 
-  body {
+  body, header {
     font-size: 2.4vw; } }

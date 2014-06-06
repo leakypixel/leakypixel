@@ -5,13 +5,11 @@ body, html {
   background-color: #fdfdfd;
   color: #0c0c0c;
   box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  }
+  -moz-box-sizing: border-box; }
 
 header {
   width: 100%;
   min-height: 10%;
   border-bottom: 10px solid #fff;
   padding: 2% 0;
-  background-color: #f1c40f;
-}
+  background-color: #f1c40f; }

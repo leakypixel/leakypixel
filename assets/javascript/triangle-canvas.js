@@ -17,7 +17,7 @@ var triangleCanvas = (function() {
     backgroundImage = "url(" + this.canvas.toDataURL() + ")";
     header.style.backgroundImage = backgroundImage;
     header.removeChild(this.canvas);
-  }
+  };
 
   triangleCanvas.prototype.draw = function() {
     var totalDrawnWidth = 0,
@@ -28,7 +28,7 @@ var triangleCanvas = (function() {
       totalDrawnWidth = totalDrawnWidth + this.height;
       this.drawColumn(totalDrawnWidth, -this.side);
     }
-  }
+  };
 
   triangleCanvas.prototype.drawColumn = function(startX, startY) {
     var columnHeight = startY;
@@ -38,7 +38,7 @@ var triangleCanvas = (function() {
       columnHeight = columnHeight + half(this.side);
       this.triangle(startX, columnHeight, "left");
     }
-  }
+  };
 
   triangleCanvas.prototype.triangle = function(currentX, currentY, direction) {
     var color = "rgba(0,0,0,"+randomOpacity()+")";
@@ -64,7 +64,7 @@ var triangleCanvas = (function() {
       this.canvasContext.closePath();
       this.canvasContext.fill();
     this.canvasContext.save();
-  }
+  };
 
   function heightOf(side) {
     return strip((((Math.sqrt(3))/2)*side));

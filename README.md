@@ -22,4 +22,3 @@ Font choices must be made.
 * Eau sans
 * Equip
 * Latin modern sans
-

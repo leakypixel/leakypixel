@@ -9,6 +9,16 @@
   font-style: normal;
   font-weight: 300;
   src: local("Unibody-8"), url(../fonts/unibody8.woff) format("woff"); }
+@font-face {
+  font-family: 'Voltaire';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Voltaire"), url(../fonts/Voltaire.woff) format("woff"); }
+@font-face {
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Silkscreen"), url(../fonts/Silkscreen.woff) format("woff"); }
 /* Typography */
 /* Colours */
 body, html {
@@ -19,11 +29,11 @@ body, html {
   color: #0c0c0c;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1vw; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: sans-serif; }
+  font-family: "Silkscreen", sans-serif; }
 
 header {
   padding: 1vw 2vw;
@@ -38,7 +48,7 @@ header {
 
 .header-text {
   padding: 0.1vw 2vw;
-  font-family: sans-serif;
+  font-family: "Silkscreen", sans-serif;
   color: #fdfdfd;
   width: 80%;
   float: left; }

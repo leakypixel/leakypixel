@@ -13,9 +13,23 @@
   src: local('Unibody-8'), url(../fonts/unibody8.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'Voltaire';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Voltaire'), url(../fonts/Voltaire.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Silkscreen'), url(../fonts/Silkscreen.woff) format('woff');
+}
+
 /* Typography */
-$headingTypeface: sans-serif;
-$bodyTypeface: sans-serif;
+$headingTypeface: 'Silkscreen', sans-serif;
+$bodyTypeface: 'Open Sans', sans-serif;
 $rootFontSize: 1vw;
 
 /* Colours */

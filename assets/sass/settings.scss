@@ -1,0 +1,26 @@
+/* Font imports */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans'), local('OpenSans'), url(../fonts/open-sans.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Unibody8';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Unibody-8'), url(../fonts/unibody8.woff) format('woff');
+}
+
+/* Typography */
+$headingTypeface: sans-serif;
+$bodyTypeface: sans-serif;
+$rootFontSize: 1vw;
+
+/* Colours */
+$white: #fdfdfd;
+$black: #0c0c0c;
+$blockColour: #293332;
+$accentColour: #d6c60f;
+

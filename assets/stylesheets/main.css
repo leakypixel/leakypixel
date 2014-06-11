@@ -1,3 +1,16 @@
+/* Font imports */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans.woff) format("woff"); }
+@font-face {
+  font-family: 'Unibody8';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Unibody-8"), url(../fonts/unibody8.woff) format("woff"); }
+/* Typography */
+/* Colours */
 body, html {
   margin: 0;
   padding: 0;
@@ -5,11 +18,47 @@ body, html {
   background-color: #fdfdfd;
   color: #0c0c0c;
   box-sizing: border-box;
-  -moz-box-sizing: border-box; }
+  -moz-box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 1vw; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif; }
 
 header {
-  width: 100%;
-  min-height: 10%;
-  border-bottom: 10px solid #fff;
-  padding: 2% 0;
-  background-color: #f1c40f; }
+  padding: 1vw 2vw;
+  background: #293332;
+  overflow: hidden;
+  border-top: 8px solid #d6c60f;
+  font-size: 0.8vw; }
+  header h1 {
+    margin: 0.5vw 0 0 0; }
+  header h2 {
+    margin: 0 0 0.5vw 0; }
+
+.header-text {
+  padding: 0.1vw 2vw;
+  font-family: sans-serif;
+  color: #fdfdfd;
+  width: 80%;
+  float: left; }
+
+.my-ugly-mug {
+  border-radius: 50%;
+  max-width: 7em;
+  max-height: 7em;
+  margin: 0 auto;
+  border: 0.4em solid #fdfdfd;
+  float: left; }
+
+@media only screen and (max-width: 800px) {
+  header .header-text,
+  header .my-ugly-mug {
+    float: none;
+    text-align: center;
+    display: block;
+    color: #fdfdfd;
+    width: 100%; }
+
+  body, header {
+    font-size: 2.4vw; } }

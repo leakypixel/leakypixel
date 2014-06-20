@@ -1,51 +1,20 @@
 /* Font imports */
 @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans.woff) format("woff"); }
-@font-face {
-  font-family: 'Imprima';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Imprima"), url(../fonts/imprima.woff) format("woff"); }
-@font-face {
-  font-family: 'Orienta';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Orienta"), url(../fonts/orienta.woff) format("woff"); }
-@font-face {
   font-family: 'Eau Sans';
   font-style: normal;
   font-weight: 300;
   src: local("Eau Sans Book"), url(../fonts/Eau-SansBook.woff) format("woff"); }
 @font-face {
-  font-family: 'Amble';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Amble Light"), url(../fonts/Amble-Light.woff) format("woff"); }
-@font-face {
-  font-family: 'Gudea';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Gudea Bold"), url(../fonts/gudea-bold.woff) format("woff"); }
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Lato"), url(../fonts/lato-normal.woff) format("woff"); }
-@font-face {
   font-family: 'Lato light';
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   src: local("Lato light"), url(../fonts/lato-light.woff) format("woff"); }
-@font-face {
-  font-family: 'Lato black';
-  font-style: normal;
-  font-weight: 800;
-  src: local("Lato black"), url(../fonts/lato-black.woff) format("woff"); }
 /* Typography */
 /* Colours */
+* {
+  margin: 1vw;
+  line-height: 160%; }
+
 body, html {
   margin: 0;
   padding: 0;
@@ -55,45 +24,63 @@ body, html {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   font-family: "Lato light", sans-serif;
-  font-size: 1vw; }
+  font-size: 1.2vw; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Eau Sans", sans-serif; }
 
 header {
-  padding: 1vw 2vw;
-  background: #293332;
-  overflow: hidden;
-  border-top: 8px solid #d6c60f;
-  font-size: 0.8vw; }
-  header h1 {
-    margin: 0.5vw 0 0 0; }
-  header h2 {
-    margin: 0 0 0.5vw 0; }
+  margin: 0 0 4em 0;
+  padding: 2vw; }
 
-.header-text {
-  padding: 0.1vw 2vw;
-  font-family: "Eau Sans", sans-serif;
-  color: #fdfdfd;
-  width: 80%;
-  float: left; }
+section {
+  max-width: 1280px;
+  margin: 2em auto;
+  display: block; }
 
-.my-ugly-mug {
-  border-radius: 50%;
-  max-width: 7em;
-  max-height: 7em;
-  margin: 0 auto;
-  border: 0.4em solid #fdfdfd;
-  float: left; }
+p, ul, li {
+  font-size: 1em; }
+
+ul {
+  padding-left: 3vw; }
+
+h1 {
+  font-size: 2em; }
+
+h2 {
+  font-size: 1.4em; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1vw;
+  font-weight: 400; }
+
+hr {
+  height: 2px;
+  padding: 0;
+  border: none;
+  background-color: #ccc;
+  border-radius: 100vw;
+  margin: 4em 0; }
+
+hr.pagebreak {
+  visibility: hidden;
+  height: 0;
+  margin: 0; }
 
 @media only screen and (max-width: 800px) {
-  header .header-text,
-  header .my-ugly-mug {
-    float: none;
-    text-align: center;
-    display: block;
-    color: #fdfdfd;
-    width: 100%; }
+  body {
+    font-size: 3.5vw; }
 
-  body, header {
-    font-size: 2.4vw; } }
+  section {
+    margin: 2em; } }
+@media print {
+  a:after {
+    content: " (" attr(href) ") ";
+    font-size: 0.8em;
+    font-weight: normal; }
+
+  hr.pagebreak {
+    page-break-after: always; }
+
+  .nopagebreak, h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid; } }

@@ -35,7 +35,7 @@ section::after, .band::after {
 .col1, .col2, .col3, .col4, .col5, .col6 {
   display: inline-block;
   float: left;
-  margin: 0 0 40px 2.2%; }
+  margin: 0 0 2em 2.2%; }
 
 .col6 {
   width: 95.6%; }
@@ -58,7 +58,6 @@ section::after, .band::after {
 /* Effectively 3 columns at <720px */
 @media only screen and (max-width: 800px) and (min-width: 480px) {
   .col1, .col2, .col3, .col4, .col5, .col6 {
-    margin: 0 auto;
     display: block;
     float: none; }
 

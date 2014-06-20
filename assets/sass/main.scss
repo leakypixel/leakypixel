@@ -1,5 +1,10 @@
 @import 'settings';
 
+* {
+  margin: 1vw;
+  line-height: 160%;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -10,56 +15,81 @@ body, html {
   -moz-box-sizing: border-box;
   font-family: $bodyTypeface;
   font-size: $rootFontSize;
-  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headingTypeface;
 }
 
 header {
-  padding: 1vw 2vw;
-  background: $blockColour;
-  overflow: hidden;
-  border-top: 8px solid $accentColour;
-  font-size: 0.8vw;
+  margin: 0 0 4em 0;
+  padding: 2vw;
+}
 
-  h1 {
-    margin: 0.5vw 0 0 0;
+section {
+  max-width: 1280px;
+  margin: 2em auto;
+  display: block;
+}
+
+p, ul, li {
+  font-size: 1em;
+}
+
+ul {
+  padding-left: 3vw;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1vw;
+  font-weight: 400;
+}
+
+hr {
+  height: 2px;
+  padding: 0;
+  border: none;
+  background-color: #ccc;
+  border-radius: 100vw;
+  margin: 4em 0;
+}
+
+hr.pagebreak {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width:800px) {
+  body {
+    font-size: 3.5vw;
   }
 
-  h2 {
-    margin: 0 0 0.5vw 0;
+  section {
+    margin: 2em;
   }
 }
 
-.header-text {
-  padding: 0.1vw 2vw;
-  font-family: $headingTypeface;
-  color: $white;
-  width: 80%;
-  float: left;
-}
-
-.my-ugly-mug {
-  border-radius: 50%;
-  max-width: 7em;
-  max-height: 7em;
-  margin: 0 auto;
-  border: 0.4em solid $white;
-  float: left;
-}
-
-@media only screen and (max-width:800px){
-  header .header-text,
-  header .my-ugly-mug{
-    float: none;
-    text-align: center;
-    display: block;
-    color: $white;
-    width: 100%;
+@media print{
+  a:after {
+    content: " (" attr(href) ") ";
+    font-size: 0.8em;
+    font-weight: normal;
   }
 
-  body, header {
-    font-size: 2.4vw;
+  hr.pagebreak {
+    page-break-after: always;
+  }
+
+  .nopagebreak, h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
   }
 }

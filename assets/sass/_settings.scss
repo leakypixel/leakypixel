@@ -1,26 +1,5 @@
 /* Font imports */
 @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Open Sans'), local('OpenSans'), url(../fonts/open-sans.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Imprima';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Imprima'), url(../fonts/imprima.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Orienta';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Orienta'), url(../fonts/orienta.woff) format('woff');
-}
-
-@font-face {
   font-family: 'Eau Sans';
   font-style: normal;
   font-weight: 300;
@@ -28,45 +7,16 @@
 }
 
 @font-face {
-  font-family: 'Amble';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Amble Light'), url(../fonts/Amble-Light.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Gudea';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Gudea Bold'), url(../fonts/gudea-bold.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Lato'), url(../fonts/lato-normal.woff) format('woff');
-}
-
-@font-face {
   font-family: 'Lato light';
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   src: local('Lato light'), url(../fonts/lato-light.woff) format('woff');
 }
-
-@font-face {
-  font-family: 'Lato black';
-  font-style: normal;
-  font-weight: 800;
-  src: local('Lato black'), url(../fonts/lato-black.woff) format('woff');
-}
-
 
 /* Typography */
 $headingTypeface: 'Eau Sans', sans-serif;
 $bodyTypeface: 'Lato light', sans-serif;
-$rootFontSize: 1vw;
+$rootFontSize: 1.2vw;
 
 /* Colours */
 $white: #fdfdfd;

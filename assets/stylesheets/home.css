@@ -5,19 +5,72 @@
   font-weight: 300;
   src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans.woff) format("woff"); }
 @font-face {
-  font-family: 'Unibody8';
+  font-family: 'Imprima';
   font-style: normal;
   font-weight: 300;
-  src: local("Unibody-8"), url(../fonts/unibody8.woff) format("woff"); }
+  src: local("Imprima"), url(../fonts/imprima.woff) format("woff"); }
 @font-face {
-  font-family: 'Voltaire';
+  font-family: 'Orienta';
   font-style: normal;
   font-weight: 300;
-  src: local("Voltaire"), url(../fonts/Voltaire.woff) format("woff"); }
+  src: local("Orienta"), url(../fonts/orienta.woff) format("woff"); }
 @font-face {
-  font-family: 'Silkscreen';
+  font-family: 'Eau Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Silkscreen"), url(../fonts/Silkscreen.woff) format("woff"); }
+  src: local("Eau Sans Book"), url(../fonts/Eau-SansBook.woff) format("woff"); }
+@font-face {
+  font-family: 'Amble';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Amble Light"), url(../fonts/Amble-Light.woff) format("woff"); }
+@font-face {
+  font-family: 'Gudea';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Gudea Bold"), url(../fonts/gudea-bold.woff) format("woff"); }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Lato"), url(../fonts/lato-normal.woff) format("woff"); }
+@font-face {
+  font-family: 'Lato light';
+  font-style: normal;
+  font-weight: 200;
+  src: local("Lato light"), url(../fonts/lato-light.woff) format("woff"); }
+@font-face {
+  font-family: 'Lato black';
+  font-style: normal;
+  font-weight: 800;
+  src: local("Lato black"), url(../fonts/lato-black.woff) format("woff"); }
 /* Typography */
 /* Colours */
+header {
+  padding: 1.6vw 2vw;
+  background: #293332;
+  overflow: hidden;
+  border-top: 8px solid #d6c60f;
+  font-size: 0.8vw;
+  height: 32vw; }
+  header h1 {
+    font-weight: 700;
+    font-size: 4em;
+    margin: 0.5vw 0 0 0; }
+  header h2 {
+    margin: 0 0 0.5vw 0; }
+
+.header-text {
+  padding: 0.1vw 2vw;
+  font-family: "Eau Sans", sans-serif;
+  color: #fdfdfd;
+  width: 80%;
+  float: left; }
+
+.my-ugly-mug {
+  border-radius: 50%;
+  max-width: 7em;
+  max-height: 7em;
+  margin: 0 auto;
+  border: 0.4em solid #fdfdfd;
+  float: left; }

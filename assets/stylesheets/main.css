@@ -5,20 +5,45 @@
   font-weight: 300;
   src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans.woff) format("woff"); }
 @font-face {
-  font-family: 'Unibody8';
+  font-family: 'Imprima';
   font-style: normal;
   font-weight: 300;
-  src: local("Unibody-8"), url(../fonts/unibody8.woff) format("woff"); }
+  src: local("Imprima"), url(../fonts/imprima.woff) format("woff"); }
 @font-face {
-  font-family: 'Voltaire';
+  font-family: 'Orienta';
   font-style: normal;
   font-weight: 300;
-  src: local("Voltaire"), url(../fonts/Voltaire.woff) format("woff"); }
+  src: local("Orienta"), url(../fonts/orienta.woff) format("woff"); }
 @font-face {
-  font-family: 'Silkscreen';
+  font-family: 'Eau Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Silkscreen"), url(../fonts/Silkscreen.woff) format("woff"); }
+  src: local("Eau Sans Book"), url(../fonts/Eau-SansBook.woff) format("woff"); }
+@font-face {
+  font-family: 'Amble';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Amble Light"), url(../fonts/Amble-Light.woff) format("woff"); }
+@font-face {
+  font-family: 'Gudea';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Gudea Bold"), url(../fonts/gudea-bold.woff) format("woff"); }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Lato"), url(../fonts/lato-normal.woff) format("woff"); }
+@font-face {
+  font-family: 'Lato light';
+  font-style: normal;
+  font-weight: 200;
+  src: local("Lato light"), url(../fonts/lato-light.woff) format("woff"); }
+@font-face {
+  font-family: 'Lato black';
+  font-style: normal;
+  font-weight: 800;
+  src: local("Lato black"), url(../fonts/lato-black.woff) format("woff"); }
 /* Typography */
 /* Colours */
 body, html {
@@ -29,11 +54,11 @@ body, html {
   color: #0c0c0c;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato light", sans-serif;
   font-size: 1vw; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Silkscreen", sans-serif; }
+  font-family: "Eau Sans", sans-serif; }
 
 header {
   padding: 1vw 2vw;
@@ -48,7 +73,7 @@ header {
 
 .header-text {
   padding: 0.1vw 2vw;
-  font-family: "Silkscreen", sans-serif;
+  font-family: "Eau Sans", sans-serif;
   color: #fdfdfd;
   width: 80%;
   float: left; }

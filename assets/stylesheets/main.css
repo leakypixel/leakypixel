@@ -12,7 +12,6 @@
 /* Typography */
 /* Colours */
 * {
-  margin: 1vw;
   line-height: 160%; }
 
 body, html {
@@ -35,14 +34,15 @@ header {
 
 section {
   max-width: 1280px;
-  margin: 2em auto;
-  display: block; }
+  margin: auto;
+  display: block;
+  padding: 0 1em; }
 
 p, ul, li {
   font-size: 1em; }
 
 ul {
-  padding-left: 3vw; }
+  padding-left: 3em; }
 
 h1 {
   font-size: 2em; }
@@ -51,7 +51,7 @@ h2 {
   font-size: 1.4em; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 1vw;
+  margin: 0.4em 0 0 0;
   font-weight: 400; }
 
 hr {
@@ -59,7 +59,7 @@ hr {
   padding: 0;
   border: none;
   background-color: #ccc;
-  border-radius: 100vw;
+  border-radius: 100%;
   margin: 4em 0; }
 
 hr.pagebreak {
@@ -69,10 +69,10 @@ hr.pagebreak {
 
 @media only screen and (max-width: 800px) {
   body {
-    font-size: 3.5vw; }
+    font-size: 4.2vw; }
 
   section {
-    margin: 2em; } }
+    padding: 0 2em; } }
 @media print {
   a:after {
     content: " (" attr(href) ") ";

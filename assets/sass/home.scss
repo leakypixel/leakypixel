@@ -1,6 +1,5 @@
 @import 'settings';
 
-
 header {
   padding: 2vw;
   background: $blockColour;
@@ -33,9 +32,9 @@ header {
 
 .my-ugly-mug {
   border-radius: 50%;
-  max-width: 10em;
-  max-height: 10em;
-  margin: 1.8em 6.5em 2.5em 3.5em;
+  max-width: 14em;
+  max-height: 14em;
+  margin: 0 4.5em 2.5em 1.5em;
   border: 0.6em solid $white;
   float: left;
   width: 100%;
@@ -54,6 +53,7 @@ header {
 
   header {
     font-size: 2vw;
+    padding: 5vw 2vw;
   }
 
   header {

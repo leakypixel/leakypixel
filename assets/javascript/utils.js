@@ -56,6 +56,13 @@ var utils = (function() {
       document.addEventListener('DOMContentLoaded', function(){
         func();
       });
+    },
+
+    each: function(array, func) {
+      var index;
+      for (index = 0; index <= array.length; ++index) {
+        func(array[index]);
+      }
     }
   };
 })();

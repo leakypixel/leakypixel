@@ -6,12 +6,20 @@ var TwitterFeed = (function() {
     var self = this;
     utils.getAJAX({
       url: "https://www.leakypixel.net/experiment/twitter/twitter.php",
-      onSuccess: function() {self.showTweets();},
+      onSuccess: function(tweets) {self.showTweets(tweets);},
+      onRequestError: function(data) {self.error(data);},
+      onServerError: function(data) {self.error(data);}
     });
   }
 
   TwitterFeed.prototype.showTweets = function(tweets) {
-    this.element.innerHTML = tweets;
+    var self = this;
+    utils.each(tweets, function(tweet) {
+      var tweetContainer = document.createElement("p");
+      tweetContainer.innerHTML = tweet;
+      tweetContainer.classList.add("tweet");
+      self.element.appendChild(tweetContainer);
+    });
     this.element.classList.add("loaded");
   };
 

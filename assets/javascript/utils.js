@@ -21,7 +21,7 @@ var utils = (function() {
       request.onload = function() {
         if (request.status >= 200 && request.status < 400){
           // Success!
-          data = JSON.parse(request.responseText);
+          var data = JSON.parse(request.responseText);
           args.onSuccess(data);
         } else {
           // We reached our target server, but it returned an error

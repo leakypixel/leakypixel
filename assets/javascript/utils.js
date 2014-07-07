@@ -60,7 +60,7 @@ var utils = (function() {
 
     each: function(array, func) {
       var index;
-      for (index = 0; index <= array.length; ++index) {
+      for (index = 0; index < array.length; index += 1) {
         func(array[index]);
       }
     }

@@ -1,0 +1,27 @@
+version=pmwiki-2.2.60 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+author=
+charset=UTF-8
+csum=
+host=85.199.239.140
+name=Site.SideBar
+passwdedit=@_site_edit
+rev=5
+targets=Main.HomePage
+text=* [[Main/HomePage]]%0a%0a(:pagelist group=-PmWiki,-Site,-SiteAdmin,-Main,-Category :)
+time=1391103512
+author:1391103512=
+diff:1391103512:1391102390:=1a2,6%0a> %0a> (:if enabled AuthId:)%0a> * [[{$FullName}?action=logout | Log Out {$AuthId}]]%0a> (:if !enabled AuthId:)%0a> * [[{$FullName}?action=login | Log In]]%0a
+host:1391103512=85.199.239.140
+author:1391102390=
+diff:1391102390:1391091071:=2,6d1%0a%3c %0a%3c (:if enabled AuthId:)%0a%3c * [[{$FullName}?action=logout | Log Out {$AuthId}]]%0a%3c (:if !enabled AuthId:)%0a%3c * [[{$FullName}?action=login | Log In]]%0a
+host:1391102390=89.238.149.34
+author:1391091071=
+diff:1391091071:1391091041:=3c3%0a%3c (:pagelist group=-PmWiki,-Site,-SiteAdmin,-Main,-Category :)%0a\ No newline at end of file%0a---%0a> (:pagelist group=-PmWiki,-Site,-SiteAdmin, -Main, -Category :)%0a\ No newline at end of file%0a
+host:1391091071=89.238.149.34
+author:1391091041=
+diff:1391091041:1391090780:=3c3%0a%3c (:pagelist group=-PmWiki,-Site,-SiteAdmin, -Main, -Category :)%0a\ No newline at end of file%0a---%0a> (:pagelist group=-PmWiki,-Site,-SiteAdmin :)%0a\ No newline at end of file%0a
+host:1391091041=89.238.149.34
+author:1391090780=
+diff:1391090780:1125550800:=2,3c2,19%0a%3c %0a%3c (:pagelist group=-PmWiki,-Site,-SiteAdmin :)%0a\ No newline at end of file%0a---%0a> * [[Main/WikiSandbox]]%0a> %0a> %25sidehead%25 [[PmWiki/PmWiki]]%0a> * [[PmWiki/Initial Setup Tasks]]  %0a> * [[PmWiki/Basic Editing]]%0a> * [[PmWiki/Documentation Index]]%0a> * [[PmWiki/FAQ | PmWiki FAQ ]]%0a> * [[PmWiki/PmWikiPhilosophy]]%0a> * [[PmWiki/Release Notes]]%0a> * [[PmWiki/ChangeLog]]%0a> %0a> %25sidehead%25 [[http://www.pmwiki.org | pmwiki.org ]]%0a> * [[Cookbook:CookbookBasics | Cookbook (addons) ]]%0a> * [[Cookbook:Skins | Skins (themes) ]]%0a> * [[PITS:PITS | PITS (issue tracking) ]]%0a> * [[PmWiki/Mailing Lists]]%0a> %0a> %25right%25 [-[[Site.SideBar?action=edit | edit SideBar]]-]%0a\ No newline at end of file%0a
+host:1391090780=89.238.149.34

@@ -1,0 +1,15 @@
+version=pmwiki-2.2.60 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+author=
+charset=UTF-8
+csum=
+ctime=1391090754
+host=89.238.149.34
+name=HowardsRest.Guards
+rev=1
+targets=
+text=Guards that are posted, number, level, etc.
+time=1391090754
+author:1391090754=
+diff:1391090754:1391090754:=1d0%0a%3c Guards that are posted, number, level, etc.%0a\ No newline at end of file%0a
+host:1391090754=89.238.149.34

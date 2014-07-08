@@ -1,0 +1,41 @@
+version=pmwiki-2.2.60 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+author=
+charset=UTF-8
+csum=
+host=89.238.149.34
+name=Main.HomePage
+rev=212
+targets=
+text=D&D wiki for us guys - can add Howard's Rest details, rules, etc.%0a%0aTo create a page, search for it on the right or go to it in the url bar.\\%0aFormat is: http://www.leakypixel.net/dnd-wiki/category/page\\%0aSo, http://www.leakypixel.net/dnd-wiki/HowardsRest/Guards would be a page about the Guards in HowardsRest.%0aCamelcase as it is on the left, and no spaces or punctuation.%0a%0aAsk if you want edit rights.
+time=1391091155
+author:1391091155=
+diff:1391091155:1391090965:=5,8c5%0a%3c So, http://www.leakypixel.net/dnd-wiki/HowardsRest/Guards would be a page about the Guards in HowardsRest.%0a%3c Camelcase as it is on the left, and no spaces or punctuation.%0a%3c %0a%3c Ask if you want edit rights.%0a\ No newline at end of file%0a---%0a> So, http://www.leakypixel.net/dnd-wiki/howardsrest/guards would be a page about the guards in howard's rest.%0a\ No newline at end of file%0a
+host:1391091155=89.238.149.34
+author:1391090965=
+diff:1391090965:1391090949:=5c5,9%0a%3c So, http://www.leakypixel.net/dnd-wiki/howardsrest/guards would be a page about the guards in howard's rest.%0a\ No newline at end of file%0a---%0a> So, http://www.leakypixel.net/dnd-wiki/howardsrest/guards would be a page about the guards in howard's rest.%0a> %0a> %0a> %0a> (:pagelist group=-PmWiki,-Site,-SiteAdmin, -Main, -Category :)%0a\ No newline at end of file%0a
+host:1391090965=89.238.149.34
+author:1391090949=
+diff:1391090949:1391090937:=9c9%0a%3c (:pagelist group=-PmWiki,-Site,-SiteAdmin, -Main, -Category :)%0a\ No newline at end of file%0a---%0a> (:pagelist group=-PmWiki,-Site,-SiteAdmin, -Main :)%0a\ No newline at end of file%0a
+host:1391090949=89.238.149.34
+author:1391090937=
+diff:1391090937:1391090711:=9c9%0a%3c (:pagelist group=-PmWiki,-Site,-SiteAdmin, -Main :)%0a\ No newline at end of file%0a---%0a> (:pagelist group=-PmWiki,-Site,-SiteAdmin :)%0a\ No newline at end of file%0a
+host:1391090937=89.238.149.34
+author:1391090711=
+diff:1391090711:1391090392:=1,7c1%0a%3c D&D wiki for us guys - can add Howard's Rest details, rules, etc.%0a%3c %0a%3c To create a page, search for it on the right or go to it in the url bar.\\%0a%3c Format is: http://www.leakypixel.net/dnd-wiki/category/page\\%0a%3c So, http://www.leakypixel.net/dnd-wiki/howardsrest/guards would be a page about the guards in howard's rest.%0a%3c %0a%3c %0a---%0a> D&D wiki for us guys - can add Howard's Rest details here etc.%0a
+host:1391090711=89.238.149.34
+author:1391090392=
+diff:1391090392:1391090327:=3c3%0a%3c (:pagelist group=-PmWiki,-Site,-SiteAdmin :)%0a\ No newline at end of file%0a---%0a> (:pagelist group=-PmWiki,-Site :)%0a\ No newline at end of file%0a
+host:1391090392=85.199.239.140
+author:1391090327=
+diff:1391090327:1391090246:=3c3%0a%3c (:pagelist group=-PmWiki,-Site :)%0a\ No newline at end of file%0a---%0a> (:pagelist:)%0a\ No newline at end of file%0a
+host:1391090327=85.199.239.140
+author:1391090246=
+diff:1391090246:1391087480:=1,3c1%0a%3c D&D wiki for us guys - can add Howard's Rest details here etc.%0a%3c %0a%3c (:pagelist:)%0a\ No newline at end of file%0a---%0a> D&D wiki for us guys - can add Howard's Rest details here etc. Test.%0a\ No newline at end of file%0a
+host:1391090246=85.199.239.140
+author:1391087480=Maddie
+diff:1391087480:1391086750:=1c1%0a%3c D&D wiki for us guys - can add Howard's Rest details here etc. Test.%0a\ No newline at end of file%0a---%0a> D&D wiki for us guys - can add Howard's Rest details here etc.%0a\ No newline at end of file%0a
+host:1391087480=89.238.149.34
+author:1391086750=Fletch
+diff:1391086750:1316331993:=1c1,12%0a%3c D&D wiki for us guys - can add Howard's Rest details here etc.%0a\ No newline at end of file%0a---%0a> Welcome to PmWiki!%0a> %0a> A local copy of PmWiki's%0a> documentation has been installed along with the software,%0a> and is available via the [[PmWiki/documentation index]].  %0a> %0a> To continue setting up PmWiki, see [[PmWiki/initial setup tasks]].%0a> %0a> The [[PmWiki/basic editing]] page describes how to create pages%0a> in PmWiki.  You can practice editing in the [[wiki sandbox]].%0a> %0a> More information about PmWiki is available from http://www.pmwiki.org.%0a
+host:1391086750=85.199.239.140

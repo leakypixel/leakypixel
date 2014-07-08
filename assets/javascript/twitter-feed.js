@@ -5,7 +5,7 @@ var TwitterFeed = (function() {
     this.element = element;
     var self = this;
     utils.getAJAX({
-      url: "https://www.leakypixel.net/experiment/twitter/twitter.php",
+      url: "https://www.leakypixel.net/feed/twitter/twitter.php",
       onSuccess: function(tweets) {self.showTweets(tweets);},
       onRequestError: function(data) {self.error(data);},
       onServerError: function(data) {self.error(data);}

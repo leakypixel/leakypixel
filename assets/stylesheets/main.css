@@ -13,7 +13,8 @@
 /* Colours */
 /* #d6c60f; */
 * {
-  line-height: 160%; }
+  line-height: 160%;
+  -webkit-font-smoothing: antialiased; }
 
 body, html {
   margin: 0;

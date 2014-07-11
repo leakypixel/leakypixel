@@ -72,7 +72,8 @@ hr.pagebreak {
   height: 0;
   margin: 0; }
 
-.tweet {
+.tweet,
+.repo {
   padding: 1vw 0;
   border-top: 1px solid #ccc; }
 

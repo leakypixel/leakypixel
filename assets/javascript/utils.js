@@ -58,9 +58,10 @@ var utils = (function() {
       });
     },
 
-    each: function(array, func) {
+    each: function(array, func, maxLoopLength) {
       var index;
-      for (index = 0; index < array.length; index += 1) {
+      maxLoopLength = maxLoopLength || array.length;
+      for (index = 0; index < maxLoopLength; index += 1) {
         func(array[index]);
       }
     }

@@ -60,6 +60,7 @@ var utils = (function() {
 
     each: function(array, func, maxLoopLength) {
       var index;
+      maxLoopLength > array.length ? maxLoopLength = array.length;
       maxLoopLength = maxLoopLength || array.length;
       for (index = 0; index < maxLoopLength; index += 1) {
         func(array[index]);

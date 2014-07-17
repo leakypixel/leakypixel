@@ -1,0 +1,39 @@
+/* Font imports */
+@font-face {
+  font-family: 'Eau Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Eau Sans Book"), url(../fonts/Eau-SansBook.woff) format("woff"); }
+@font-face {
+  font-family: 'Lato light';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Lato light"), url(../fonts/lato-light.woff) format("woff"); }
+/* Typography */
+/* Colours */
+@font-face {
+  font-family: 'lp-icons';
+  font-style: normal;
+  font-weight: 300;
+  src: local("lp-icons"), url(../fonts/icons.woff) format("woff"); }
+.icon {
+  text-decoration: none;
+  margin: auto;
+  text-align: center;
+  color: #293332; }
+
+.icon:before {
+  font-family: 'lp-icons';
+  visibility: visible;
+  text-decoration: none;
+  margin-right: 0.5em;
+  color: #293332; }
+
+.icon.github:before {
+  content: '\e800'; }
+
+.icon.twitter:before {
+  content: '\e801'; }
+
+.icon.blog:before {
+  content: '\e802'; }

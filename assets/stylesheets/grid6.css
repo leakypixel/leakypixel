@@ -18,7 +18,8 @@ section {
   clear: both;
   margin: 0 auto;
   width: 100%;
-  max-width: 960px; }
+  display: block;
+  padding: 0 1% 0 0; }
 
 /* Default for none grid-class elements in sections, fixes Hs etc. */
 section > * {
@@ -35,7 +36,7 @@ section::after, .band::after {
 .col1, .col2, .col3, .col4, .col5, .col6 {
   display: inline-block;
   float: left;
-  margin: 0 0 2em 2.2%; }
+  margin: 0 0 2em 2.5%; }
 
 .col6 {
   width: 95.6%; }
@@ -57,10 +58,6 @@ section::after, .band::after {
 
 /* Effectively 3 columns at <720px */
 @media only screen and (max-width: 800px) and (min-width: 480px) {
-  .col1, .col2, .col3, .col4, .col5, .col6 {
-    display: block;
-    float: none; }
-
   .col1 {
     width: 30.4%; }
 

@@ -13,9 +13,11 @@
   src: local('Lato light'), url(../fonts/lato-light.woff) format('woff');
 }
 
+
 /* Typography */
 $headingTypeface: 'Eau Sans', sans-serif;
 $bodyTypeface: 'Lato light', sans-serif;
+$iconTypeface: 'lp-icons';
 $rootFontSize: 1.2vw;
 
 /* Colours */
@@ -23,5 +25,4 @@ $white: #fdfdfd;
 $black: #0c0c0c;
 $blockColour: #293332;
 $accentColour: #E6B415;
-/* #d6c60f; */
 

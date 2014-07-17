@@ -1,0 +1,35 @@
+@import 'settings';
+
+@font-face {
+  font-family: 'lp-icons';
+  font-style: normal;
+  font-weight: 300;
+  src: local('lp-icons'), url(../fonts/icons.woff) format('woff');
+}
+
+.icon {
+  text-decoration: none;
+  margin: auto;
+  text-align: center;
+  color: $blockColour;
+}
+
+.icon:before {
+  font-family: 'lp-icons';
+  visibility: visible;
+  text-decoration: none;
+  margin-right: 0.5em;
+  color: $blockColour;
+}
+
+.icon.github:before {
+  content: '\e800';
+}
+
+.icon.twitter:before {
+  content: '\e801';
+}
+
+.icon.blog:before {
+  content: '\e802';
+}

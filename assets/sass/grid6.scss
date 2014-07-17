@@ -17,10 +17,13 @@ width:100%;
   background-size:cover}
 
 section{
-  clear:both;
-    margin:0 auto;
-  width:100%;
-  max-width:960px}
+  clear: both;
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+  padding: 0 1% 0 0;
+}
+
 
 /* Default for none grid-class elements in sections, fixes Hs etc. */
 section>*{
@@ -32,49 +35,45 @@ section>*{
 section::after,.band::after{
   content: " ";
   display: block; 
-  height: 0; 
+  height: 0;
   clear: both}
 
-.col1,.col2,.col3,.col4,.col5,.col6{
-  display:inline-block;
-  float:left;
-  margin:0 0 2em 2.2%}
-
-.col6{
-  width:95.6%}
-
-.col5{
-  width:79.3%}
-
-.col4{
-  width:63%}
-
-.col3{
-  width:46.6%}
-
-.col2{
-  width:30.4%}
-
-.col1{
-  width:14.1%}
-
-
-/* Effectively 3 columns at <720px */
-@media only screen and (max-width:800px) and (min-width: 480px){
   .col1,.col2,.col3,.col4,.col5,.col6{
-    display: block;
-    float: none}
+    display:inline-block;
+    float:left;
+    margin:0 0 2em 2.5%}
 
-  .col1{
+  .col6{
+    width:95.6%}
+
+  .col5{
+    width:79.3%}
+
+  .col4{
+    width:63%}
+
+  .col3{
+    width:46.6%}
+
+  .col2{
     width:30.4%}
 
-  .col2,.col3,.col4,.col5{
-    width:95.6%}
-  
-  /*   This seems odd, but it's there so that we can have a 1 and 2 column block
-  maintained on smaller screen sizes, or choose to have it behave differently on a tab 
-  if that'll look better */
-  .col2.maintainAspect,.third{
+  .col1{
+    width:14.1%}
+
+
+  /* Effectively 3 columns at <720px */
+  @media only screen and (max-width:800px) and (min-width: 480px){
+    .col1{
+      width:30.4%}
+
+    .col2,.col3,.col4,.col5{
+      width:95.6%}
+
+    /*   This seems odd, but it's there so that we can have a 1 and 2 column block
+    maintained on smaller screen sizes, or choose to have it behave differently on a tab 
+    if that'll look better */
+    .col2.maintainAspect,.third{
     width:30.4%}
   
   .col3.maintainAspect,.half{

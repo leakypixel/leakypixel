@@ -17,12 +17,16 @@ body, html {
   font-size: $rootFontSize;
 }
 
+body {
+  padding-bottom: 1.6em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $headingTypeface;
 }
 
 header {
-  margin: 0 0 1em 0;
+  margin: 0;
   padding: 2vw;
 }
 
@@ -68,11 +72,21 @@ hr.pagebreak {
 
 .tweet,
 .repo {
-  padding: 1vw 0;
-  border-top: 1px solid #ccc;
+  padding: 1em 0 0 0;
+
+  &:before {
+    content: " ";
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    border-top: 1px solid #ddd;
+    padding-bottom: 1em;
+  }
 
   &:first-of-type {
-    border-top: none;
+    &:before {
+      content: none;
+    }
   }
 }
 
@@ -83,15 +97,6 @@ hr.pagebreak {
   }
 }
 
-.col1,
-.col2,
-.col3,
-.col4,
-.col5,
-.col6 {
-  padding: 1em 2em;
-  //background-color: #ccc;
-}
 
 @media only screen and (max-width:800px) {
   body {
@@ -99,7 +104,21 @@ hr.pagebreak {
   }
 
   section {
-    padding: 0 2em;
+    padding: 1em 2em;
+  }
+}
+
+@media only screen and (max-width:460px) {
+  body {
+    font-size: $rootFontSize * 4.5;
+  }
+
+  header {
+    margin-bottom: 1.2em;
+  }
+
+  section {
+    padding: 0 0.8em;
   }
 }
 

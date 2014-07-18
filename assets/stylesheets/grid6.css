@@ -19,7 +19,7 @@ section {
   margin: 0 auto;
   width: 100%;
   display: block;
-  padding: 0 1% 0 0; }
+  padding: 0 6% 0 5%; }
 
 /* Default for none grid-class elements in sections, fixes Hs etc. */
 section > * {
@@ -36,7 +36,8 @@ section::after, .band::after {
 .col1, .col2, .col3, .col4, .col5, .col6 {
   display: inline-block;
   float: left;
-  margin: 0 0 2em 2.5%; }
+  padding: 1em 1.2em;
+  margin: 0 0 1em 2.5%; }
 
 .col6 {
   width: 95.6%; }
@@ -62,7 +63,9 @@ section::after, .band::after {
     width: 30.4%; }
 
   .col2, .col3, .col4, .col5 {
-    width: 95.6%; }
+    width: 100%;
+    padding: 0;
+    margin-left: 0; }
 
   /*   This seems odd, but it's there so that we can have a 1 and 2 column block
   maintained on smaller screen sizes, or choose to have it behave differently on a tab 
@@ -81,4 +84,6 @@ section::after, .band::after {
 /* Full width <480px */
 @media only screen and (max-width: 480px) {
   .col1, .col2, .col3, .col4, .col5 {
-    width: 95.6%; } }
+    width: 100%;
+    padding: 1em 0;
+    margin-left: 0; } }

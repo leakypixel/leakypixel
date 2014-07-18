@@ -20,7 +20,8 @@
   text-decoration: none;
   margin: auto;
   text-align: center;
-  color: #293332; }
+  color: #293332;
+  margin-left: -1em; }
 
 .icon:before {
   font-family: 'lp-icons';

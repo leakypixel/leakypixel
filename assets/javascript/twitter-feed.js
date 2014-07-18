@@ -19,7 +19,7 @@ var TwitterFeed = (function() {
       tweetContainer.innerHTML = tweet;
       tweetContainer.classList.add("tweet");
       self.element.appendChild(tweetContainer);
-    }, 5);
+    }, 3);
     this.element.classList.add("loaded");
   };
 

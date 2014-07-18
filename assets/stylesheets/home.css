@@ -16,15 +16,27 @@ header {
   font-family: "Eau Sans", sans-serif;
   font-weight: 700;
   text-align: center;
-  height: 14em;
+  height: 15.5em;
   padding: 1.4em 2em 2em 2em;
   overflow: hidden;
   background: #293332;
   color: #fdfdfd;
   border-top: 0.6em solid #e6b415; }
+  header h1 {
+    margin-top: 0; }
+  header h2 {
+    font-size: 0.8em;
+    margin-top: 0; }
 
-h1 {
-  margin-top: 0; }
+body {
+  padding-bottom: 0.6em; }
+  body:after {
+    content: "if you really really love me, you could email me at hi@leakypixel.net";
+    display: block;
+    font-size: 0.6em;
+    color: #999;
+    text-align: center;
+    margin-top: 1em; }
 
 .my-ugly-mug {
   max-width: 7em;

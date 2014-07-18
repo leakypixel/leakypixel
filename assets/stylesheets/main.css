@@ -24,6 +24,7 @@ body, html {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   font-family: "Lato light", sans-serif;
+  font-size: 16px;
   font-size: 1.2vw; }
 
 body {
@@ -34,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
   margin: 0;
-  padding: 2vw; }
+  padding: 1.6em; }
 
 p, ul, li {
   font-size: 1em; }
@@ -89,12 +90,14 @@ hr.pagebreak {
 
 @media only screen and (max-width: 800px) {
   body {
+    font-size: 56px;
     font-size: 4.2vw; }
 
   section {
     padding: 1em 2em; } }
 @media only screen and (max-width: 460px) {
   body {
+    font-size: 72px;
     font-size: 5.4vw; }
 
   header {

@@ -1,32 +1,23 @@
-/*   Grid6 - A simple 6-column grid system, intended to be as flexible and barebones
-  as possible, while still giving plenty of options for control over the layout on
-  all devices. */
-/*   make the world work the way it's supposed to - padding and border inside the
-  width, margin outside, and everything zeroed. */
 * {
   box-sizing: border-box;
-  margin: 0;
   outline: 0;
-  border: 0; }
+  border: 0;
+  margin: 0; }
 
 .band {
   width: 100%;
   background-position: center center;
   background-size: cover; }
 
-section {
+section, header, footer {
   clear: both;
-  margin: 0 auto;
   width: 100%;
   display: block;
+  margin: 0 auto;
   padding: 0 6% 0 5%; }
+  section > *, header > *, footer > * {
+    margin: 0 auto; }
 
-/* Default for none grid-class elements in sections, fixes Hs etc. */
-section > * {
-  width: 95.6%;
-  margin: 0 auto; }
-
-/* Clear fix is built in to stop blocks collapsing */
 section::after, .band::after {
   content: " ";
   display: block;
@@ -36,8 +27,8 @@ section::after, .band::after {
 .col1, .col2, .col3, .col4, .col5, .col6 {
   display: inline-block;
   float: left;
-  padding: 1em 1.2em;
-  margin: 0 0 1em 2.5%; }
+  margin: 0 0 1em 2.2%;
+  padding: 1em 1.2em; }
 
 .col6 {
   width: 95.6%; }
@@ -57,33 +48,28 @@ section::after, .band::after {
 .col1 {
   width: 14.1%; }
 
-/* Effectively 3 columns at <720px */
 @media only screen and (max-width: 800px) and (min-width: 480px) {
-  .col1 {
-    width: 30.4%; }
-
   .col2, .col3, .col4, .col5 {
     width: 100%;
-    padding: 0;
-    margin-left: 0; }
+    margin-left: 0;
+    padding: 0; }
 
-  /*   This seems odd, but it's there so that we can have a 1 and 2 column block
-  maintained on smaller screen sizes, or choose to have it behave differently on a tab 
-  if that'll look better */
-  .col2.maintainAspect, .third {
+  .col2.maintain-aspect, .third {
     width: 30.4%; }
 
-  .col3.maintainAspect, .half {
+  .col3.maintain-aspect, .half {
     width: 46.6%; }
 
-  .col4.maintainAspect, .twoThirds {
+  .col4.maintain-aspect, .two-thirds {
     width: 63%; }
 
-  .col6.maintainAspect, .full {
-    width: 95.6%; } }
-/* Full width <480px */
+  .col6.maintain-aspect, .full {
+    width: 95.6%; }
+
+  .col1, .col2.maintainAspect, .third {
+    width: 30.4%; } }
 @media only screen and (max-width: 480px) {
   .col1, .col2, .col3, .col4, .col5 {
     width: 100%;
-    padding: 1em 0;
-    margin-left: 0; } }
+    margin-left: 0;
+    padding: 1em 0; } }

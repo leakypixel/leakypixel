@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /otb/
+Disallow: /experiment/
+Disallow: /an-adventurous-spirit/

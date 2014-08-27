@@ -1,24 +1,8 @@
 leakypixel
 ==========
-
-SSH deploy, bitches.
-
+Personal site.
 
 
-
-Font choices must be made.
-# Headings
-* Silkscreen
-* Amble
-* Ostrich Sans
-* Voltaire
-* Eau sans
-
-# Paragraph
-* Clear sans
-* Open sans
-* Alegreya sans
-* Franklin Gothic
-* Eau sans
-* Equip
-* Latin modern sans
+## To do:
+* Dependencies are all over the shop - need to fix this.
+* Auto build system.

@@ -34,7 +34,7 @@ var TwitterFeed = (function() {
 utils.onReady(function() {
   var twitterFeeds = document.getElementsByClassName("twitter-feed");
   if (twitterFeeds) {
-    Array.prototype.forEach.call(twitterFeeds, function(element){
+    utils.each(twitterFeeds, function(element){
       new TwitterFeed(element);
     });
   }

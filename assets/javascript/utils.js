@@ -18,7 +18,7 @@ var utils = (function() {
       var request = new XMLHttpRequest();
       request.open('GET', args.url, true);
 
-      request.onreadystatechange = function() {
+      request.onload = function() {
         if (request.status >= 200 && request.status < 400){
           var data = JSON.parse(request.responseText);
           args.onSuccess(data);

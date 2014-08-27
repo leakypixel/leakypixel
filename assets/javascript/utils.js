@@ -18,13 +18,11 @@ var utils = (function() {
       var request = new XMLHttpRequest();
       request.open('GET', args.url, true);
 
-      request.onload = function() {
+      request.onreadystatechange = function() {
         if (request.status >= 200 && request.status < 400){
-          // Success!
           var data = JSON.parse(request.responseText);
           args.onSuccess(data);
         } else {
-          // We reached our target server, but it returned an error
           args.onServerError(request);
         }
       };
@@ -34,6 +32,63 @@ var utils = (function() {
       };
 
       request.send();
+    },
+
+    post: function(args) {
+
+      if (!args.url) {
+        return;
+      }
+
+      var logToConsole = function(data) {
+        console.log(data);
+      };
+
+      args.onServerError = args.onServerError || logToConsole;
+      args.onRequestError = args.onRequestError || logToConsole;
+      args.onSuccess = args.onSuccess || logToConsole;
+
+      if (typeof args.data === 'object') {
+        args.data = utils.urlEncode(args.data);
+      };
+
+      var request = new XMLHttpRequest();
+      request.open('POST', args.url, true);
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+      request.onload = function() {
+        if (request.status >= 200 && request.status < 400){
+          var data = JSON.parse(request.responseText);
+          args.onSuccess(data);
+        } else {
+          args.onServerError(request);
+        }
+      };
+
+      request.onerror = function() {
+        args.onRequestError(request);
+      };
+
+      request.send(args.data);
+    },
+
+    fieldsToArray: function(fields) {
+      var array = {};
+      utils.each(fields, function(field) {
+        array[field.name] = field.value;
+      });
+
+      return array;
+    },
+
+    urlEncode: function(obj) {
+      var str = [];
+      for(var p in obj){
+        if (obj.hasOwnProperty(p)) {
+          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+      }
+      return str.join("&");
     },
 
     extend: function(out) {

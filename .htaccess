@@ -3,3 +3,4 @@ RewriteEngine On
     RewriteRule (.*) https://www.leakypixel.net/$1 [R=301,L]
 
     RewriteRule    ^feed/twitter/?$    feed/twitter.php    [NC,L]
+    RewriteRule    ^contact/?$    email.php    [NC,L]

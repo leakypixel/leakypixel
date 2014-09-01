@@ -1,7 +1,7 @@
 @import 'settings';
 
 header {
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   font-family: $headingTypeface;
   font-weight: 700;
   text-align: center;
@@ -24,15 +24,6 @@ header {
 
 body {
   padding-bottom: 0.6em;
-
-  &:after {
-    content: "if you really really love me, you could email me at hi@leakypixel.net";
-    display: block;
-    font-size: 0.6em;
-    color: #999;
-    text-align: center;
-    margin-top: 1em;
-  }
 }
 
 .my-ugly-mug {
@@ -40,6 +31,13 @@ body {
   max-height: 7em;
   border-radius: 50%;
   border: 0.2em solid $white;
+}
+
+.about-me {
+  font-size: 1.4em;
+  margin-top: 1em;
+  padding: 1em 4em 0 4em;
+  text-align: center;
 }
 
 @media only screen and (max-width:800px){

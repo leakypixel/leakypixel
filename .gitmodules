@@ -1,0 +1,6 @@
+[submodule "assets/javascript/github-feed"]
+	path = assets/javascript/github-feed
+	url = https://github.com/leakypixel/github-feed.git
+[submodule "assets/javascript/twitter-feed"]
+	path = assets/javascript/twitter-feed
+	url = https://github.com/leakypixel/attenborough.git

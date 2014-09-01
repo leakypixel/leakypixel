@@ -1,5 +1,6 @@
 var utils = (function() {
   'use strict';
+
   return {
     getAJAX: function(args) {
 
@@ -50,7 +51,7 @@ var utils = (function() {
 
       if (typeof args.data === 'object') {
         args.data = utils.urlEncode(args.data);
-      };
+      }
 
       var request = new XMLHttpRequest();
       request.open('POST', args.url, true);

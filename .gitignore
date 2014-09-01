@@ -1,5 +1,4 @@
 .sass-cache
-# Logs
 logs
 *.log
 
@@ -29,4 +28,6 @@ node_modules
 .lock-wscript
 node_modules/
 experiment/
-assets/stylesheets/
+assets/uglify-cache/
+assets/scripts.js
+assets/stylesheet.css

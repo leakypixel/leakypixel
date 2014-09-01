@@ -5,7 +5,7 @@ header {
   font-family: $headingTypeface;
   font-weight: 700;
   text-align: center;
-  height: 15.5em;
+  height: 14.5em;
   padding: 1.4em 2em 2em 2em;
   overflow: hidden;
   background: $blockColour;
@@ -27,8 +27,8 @@ body {
 }
 
 .my-ugly-mug {
-  max-width: 7em;
-  max-height: 7em;
+  max-width: 6em;
+  max-height: 6em;
   border-radius: 50%;
   border: 0.2em solid $white;
 }
@@ -36,7 +36,7 @@ body {
 .about-me {
   font-size: 1.4em;
   margin-top: 1em;
-  padding: 1em 4em 0 4em;
+  padding: 1.2em 4em;
   text-align: center;
 }
 
@@ -48,6 +48,12 @@ body {
 
   header {
     height: auto;
+  }
+
+  .about-me {
+    font-size: 1em;
+    padding: 0 0 0.6em 0;
+    margin-top: 0;
   }
 }
 

@@ -112,8 +112,8 @@ hr.pagebreak {
 
 @media only screen and (max-width:460px) {
   body {
-    font-size: $oldBrowserRootSize * 4.5;
-    font-size: $rootFontSize * 4.5;
+    font-size: $oldBrowserRootSize * 5;
+    font-size: $rootFontSize * 5;
   }
 
   header {

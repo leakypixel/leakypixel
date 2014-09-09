@@ -4,3 +4,6 @@
 [submodule "assets/javascript/twitter-feed"]
 	path = assets/javascript/twitter-feed
 	url = https://github.com/leakypixel/attenborough.git
+[submodule "assets/javascript/utilities"]
+	path = assets/javascript/utilities
+	url = https://github.com/leakypixel/utilities.git

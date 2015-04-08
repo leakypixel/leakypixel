@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     },
     jshint: {
       all: {
-        src: ['assets/javascript/**/*.js']
+        src: ['assets/javascript/*/*.js']
       },
     },
     uglify: {
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'assets/javascript/',
-          src: '**/*.js',
+          src: '*/*.js',
           dest: 'assets/uglify-cache/'
         }]
       }
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['assets/uglify-cache/utils.js', 'assets/uglify-cache/**/*.js'],
+        src: ['assets/uglify-cache/utilities/lz.js', 'assets/uglify-cache/**/*.js', '!assets/uglify-cache/**/spec', '!assets/uglify-cache/utilities/types'],
         dest: 'assets/scripts.js'
       }
     },
@@ -48,14 +48,14 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       scripts: {
-        files: 'assets/javascript/**/*.js',
+        files: 'assets/javascript/*/*.js',
         tasks: ['jshint', 'uglify', 'concat'],
         options: {
           spawn: false
         }
       },
       concat: {
-        files: 'assets/uglify-cache/**/*.js',
+        files: 'assets/uglify-cache/*/*.js',
         tasks: ['concat']
       }
     }

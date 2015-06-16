@@ -1,22 +1,17 @@
 header {
-  font-size: 1.2vw;
   font-family: $headingTypeface;
-  font-weight: 700;
-  text-align: center;
-  height: 14.5em;
-  padding: 1.4em 2em 2em 2em;
+  text-align: left;
+  padding: 4.4em 5em 5em 5em;
   overflow: hidden;
   background: $blockColour;
   color: $white;
   border-top: 0.6em solid $accentColour;
 
-  h1 {
-    margin-top: 0;
-  }
-
+  h1,
   h2 {
-    font-size: 0.8em;
     margin-top: 0;
+    font-weight: 300;
+    display: inline;
   }
 }
 
@@ -24,34 +19,9 @@ body {
   padding-bottom: 0.6em;
 }
 
-.my-ugly-mug {
-  max-width: 6em;
-  max-height: 6em;
-  border-radius: 50%;
-  border: 0.2em solid $white;
-}
-
-.about-me {
-  font-size: 1.4em;
-  margin-top: 1em;
-  padding: 1.2em 4em;
-  text-align: center;
-}
-
 @media only screen and (max-width:800px){
   header {
-    font-size: 4.8vw;
-    padding: 5vw 2vw;
-  }
-
-  header {
-    height: auto;
-  }
-
-  .about-me {
-    font-size: 1em;
-    padding: 0 0 0.6em 0;
-    margin-top: 0;
+    padding: 1em;
   }
 }
 

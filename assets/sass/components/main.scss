@@ -7,13 +7,11 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: $white;
   color: $black;
+  font-size: 1em;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   font-family: $bodyTypeface;
-  font-size: $oldBrowserRootSize;
-  font-size: $rootFontSize;
 }
 
 body {
@@ -29,10 +27,6 @@ header {
   padding: 1.6em;
 }
 
-p, ul, li {
-  font-size: 1em;
-}
-
 ul {
   padding-left: 3em;
 }
@@ -42,7 +36,7 @@ a {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 h2 {
@@ -98,22 +92,13 @@ hr.pagebreak {
 
 
 @media only screen and (max-width:800px) {
-  body {
-    font-size: $oldBrowserRootSize * 3.5;
-    font-size: $rootFontSize * 3.5;
-  }
-
   section {
     padding: 1em 2em;
+    font-size: 1.2em;
   }
 }
 
 @media only screen and (max-width:460px) {
-  body {
-    font-size: $oldBrowserRootSize * 5;
-    font-size: $rootFontSize * 5;
-  }
-
   header {
     margin-bottom: 1.2em;
   }

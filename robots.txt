@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /otb/
-Disallow: /merch-uk/
-Disallow: /experiment/
-Disallow: /an-adventurous-spirit/

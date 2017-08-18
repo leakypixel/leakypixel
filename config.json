@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    {
+      "name": "homepage",
+      "data": {
+      },
+      "jobs": {
+        "template": {
+          "composers": ["readInFile"],
+          "bufferName": "templates",
+          "files": [{
+            "path": "./templates/index.html"
+          }]
+        },
+        "markdown": {
+          "composers": ["readInFile"],
+          "bufferName": "markdown",
+          "files": [{
+            "path": "./content/intro.md"
+          }]
+        },
+        "renderMarkdown": {
+          "composers": ["markdownToHtml"]
+        },
+        "renderTemplate": {
+          "composers": ["handlebarsToHtml", "writeOutHtml"],
+          "bufferName": "templates",
+          "files": {
+            "path": "./dist/index.html"
+          }
+        }
+      }
+    }
+  ]
+}

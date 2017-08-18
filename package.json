@@ -1,0 +1,26 @@
+{
+  "name": "leakypixel",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./.npm-scripts/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leakypixel/leakypixel.git"
+  },
+  "author": "Craig Fletcher <hi@leakypixel.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leakypixel/leakypixel/issues"
+  },
+  "homepage": "https://github.com/leakypixel/leakypixel#readme",
+  "devDependencies": {
+    "careless-fs": "^0.1.0",
+    "glob": "^7.1.2",
+    "handlebars": "^4.0.10",
+    "marked": "^0.3.6"
+  }
+}

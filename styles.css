@@ -1,0 +1,287 @@
+/* Reset a couple of things for the sake of ease */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Variables */
+/* Dark by default */
+:root {
+  --color-background: #1e1e1e;
+  --color-background-alternative: #4f4f4f;
+  --color-text-default: #f0f0f0;
+  --color-text-alternative: #4f4f4f;
+  --color-accent-1: #ffff00;
+  --color-accent-2: #ff00ff;
+  --color-accent-3: #00ffff;
+}
+
+/* If the user has set a preference, respect it */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #f0f0f0;
+    --color-background-alternative: #afafaf;
+    --color-text-default: #0e0e0e;
+    --color-accent-1: #0000ff;
+    --color-accent-2: #00ff00;
+    --color-accent-3: #ff0000;
+  }
+}
+
+/* Class-based switching for overriding the system preference */
+.light {
+  --color-background: #f0f0f0;
+  --color-background-alternative: #afafaf;
+  --color-text-default: #0e0e0e;
+  --color-accent-1: #0000ff;
+  --color-accent-2: #00ff00;
+  --color-accent-3: #ff0000;
+}
+
+.dark {
+  --color-background: #1e1e1e;
+  --color-background-alternative: #4f4f4f;
+  --color-text-default: #f0f0f0;
+  --color-text-alternative: #4f4f4f;
+  --color-accent-1: #ffff00;
+  --color-accent-2: #ff00ff;
+  --color-accent-3: #00ffff;
+}
+/* End variables */
+
+/* General styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-default);
+  line-height: 1.6em;
+  letter-spacing: 0.025em;
+  font-family: "Noto sans", sans-serif;
+  font-weight: 300;
+}
+
+section {
+  max-width: 42vw;
+  margin: 0 auto 2em auto;
+  overflow: hidden;
+  clear: both;
+  display: block;
+}
+
+section img {
+  display: block;
+  margin: 2em auto;
+  max-width: 100%;
+}
+
+h1 {
+  text-transform: uppercase;
+  display: inline;
+  font-family: "Gidole", monospace;
+  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  font-size: 3.5rem;
+  line-height: 1.6em;
+  border-bottom: 0.4em solid;
+  border-color: var(--color-accent-2);
+}
+
+h2 {
+  color: var(--color-text-alternative);
+  font-family: "Gidole", monospace;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 2em 0 3em 0;
+}
+
+h3 {
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 3em 0 1em 0;
+  font-family: "Gidole", monospace;
+  font-weight: bold;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  font-size: 1.6rem;
+  line-height: 1.6em;
+}
+
+a,
+a:active,
+a:visited {
+  background-color: var(--color-accent-1);
+  color: var(--color-background);
+  text-decoration: underline;
+  padding: 0 0.2em;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.75em;
+  margin: 1em 0 3em 0;
+}
+
+/* Footer */
+footer {
+  margin-top: 6em;
+  padding: 2em 0;
+  color: var(--color-background);
+  background-color: var(--color-text-default);
+}
+
+footer ul {
+  list-style-type: none;
+  display: block;
+  margin: 3em auto 3.5em auto;
+  width: 100%;
+  align-items: stretch;
+  justify-content: stretch;
+  max-width: 82vh;
+  display: flex;
+  flex-flow: row;
+}
+
+footer ul li {
+  display: inline-block;
+  flex: 1;
+  padding: 1em 0 0.5em 0;
+}
+
+footer ul li a {
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Gidole", monospace;
+  font-weight: bold;
+}
+footer ul li:nth-child(1) {
+  border-bottom: 0.5em solid;
+  border-color: var(--color-accent-1);
+}
+footer ul li:nth-child(2) {
+  border-bottom: 0.5em solid;
+  border-color: var(--color-accent-2);
+}
+footer ul li:nth-child(3) {
+  border-bottom: 0.5em solid;
+  border-color: var(--color-accent-3);
+}
+
+/* Styles for pseudo-button links */
+.blocklink,
+.blocklink:active,
+.blocklink:visited {
+  margin: 0.4em;
+  border: 0.4em solid;
+  border-color: var(--color-accent-3);
+  background-color: var(--color-background);
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+  text-transform: uppercase;
+  float: right;
+  color: var(--color-text-default);
+  font-weight: bold;
+}
+
+/* Header */
+header {
+  margin: 3vw auto 3em auto;
+  display: flex;
+  flex-flow: row;
+  max-width: 80vw;
+  padding: 1em;
+}
+header div {
+  margin: 0 auto 2em auto;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-flow: row;
+}
+header img {
+  float: left;
+  height: 6em;
+  width: 4em;
+}
+
+/* Dark/light mode switches */
+header .switches {
+  align-content: space-around;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.lightswitch,
+.darkswitch {
+  padding: 0.2em;
+  border: none;
+  font-size: 1.4em;
+  color: var(--color-background);
+  font-weight: bold;
+  line-height: 1em;
+}
+.lightswitch {
+  background-color: var(--color-background);
+  background-color: var(--color-background-alternative);
+  color: var(--color-text-default);
+}
+.darkswitch {
+  background-color: var(--color-accent-3);
+}
+
+@media (prefers-color-scheme: light) {
+  .darkswitch {
+    background-color: var(--color-background);
+    background-color: var(--color-background-alternative);
+    color: var(--color-text-default);
+  }
+  .lightswitch {
+    background-color: var(--color-accent-3);
+  }
+}
+.light .darkswitch {
+  background-color: var(--color-background-alternative);
+  color: var(--color-text-default);
+}
+.light .lightswitch {
+  background-color: var(--color-accent-3);
+}
+
+/* Smaller screen tweaks */
+@media screen and (max-width: 940px) {
+  section {
+    max-width: 90vw;
+  }
+  header {
+    max-width: 90vw;
+  }
+  footer {
+    padding: 0;
+  }
+
+  footer ul {
+    flex-flow: column;
+    margin: 3em 0 0 0;
+  }
+  footer ul li {
+    padding: 1em;
+    border-bottom: none;
+    border-left: 0.5em solid;
+  }
+  footer ul li:nth-child(1) {
+    border-bottom: none;
+  }
+  footer ul li:nth-child(2) {
+    border-bottom: none;
+  }
+  footer ul li:nth-child(3) {
+    border-bottom: none;
+  }
+}
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+@font-face {
+  font-family: "Gidole";
+  src: url("Gidole-Regular.ttf") format("truetype");
+}

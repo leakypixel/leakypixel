@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:12-alpine'
+            image 'leakypixel/node-alpine-git'
         }
     }
     environment {

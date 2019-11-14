@@ -1,4 +1,4 @@
-const fs = require("../../../careless-fs");
+const fs = require("careless-fs");
 module.exports = function(config, item) {
   return fs.write({
     ...item,

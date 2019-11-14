@@ -1,4 +1,4 @@
-const Grapefruit = require("../../grapefruit");
+const Grapefruit = require("grapefruit");
 const careless = require("careless-fs");
 const buildPipeline = require("./build-pipeline");
 const fs = require("fs");

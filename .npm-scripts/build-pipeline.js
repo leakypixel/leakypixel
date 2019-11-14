@@ -123,7 +123,7 @@ module.exports = {
         config: {
           decorators: [outputDecorator],
           baseDir: "content",
-          outputExtension: ".htm"
+          outputExtension: ".html"
         }
       },
       {

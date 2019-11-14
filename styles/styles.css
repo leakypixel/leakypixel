@@ -213,8 +213,8 @@ header div {
 .logo svg,
 .logo a {
   float: left;
-  height: 4em;
-  width: 3em;
+  width: 2em;
+  height: 3em;
   fill: var(--color-text-default);
   background-color: transparent;
 }
@@ -333,9 +333,7 @@ header div {
   body {
     font-size: 22px;
   }
-  .logo {
-    font-size: 14px;
-  }
+
   .switches button {
     font-size: 22px;
   }

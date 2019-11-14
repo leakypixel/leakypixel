@@ -7,13 +7,13 @@
 /* Variables */
 /* Dark by default */
 :root {
-  --color-background: #1e1e1e;
+  --color-background: #151515;
   --color-background-alternative: #4f4f4f;
   --color-text-default: #f0f0f0;
   --color-text-alternative: #4f4f4f;
-  --color-accent-1: #ffff00;
-  --color-accent-2: #ff00ff;
-  --color-accent-3: #00ffff;
+  --color-accent-1: #f1c40f;
+  --color-accent-2: #9b59b6;
+  --color-accent-3: #1abc9c;
 }
 
 /* If the user has set a preference, respect it */
@@ -22,9 +22,9 @@
     --color-background: #f0f0f0;
     --color-background-alternative: #afafaf;
     --color-text-default: #0e0e0e;
-    --color-accent-1: #0000ff;
-    --color-accent-2: #00ff00;
-    --color-accent-3: #ff0000;
+    --color-accent-1: #3498db;
+    --color-accent-2: #2ecc71;
+    --color-accent-3: #e74c3c;
   }
 }
 
@@ -33,24 +33,25 @@
   --color-background: #f0f0f0;
   --color-background-alternative: #afafaf;
   --color-text-default: #0e0e0e;
-  --color-accent-1: #0000ff;
-  --color-accent-2: #00ff00;
-  --color-accent-3: #ff0000;
+  --color-accent-1: #3498db;
+  --color-accent-2: #2ecc71;
+  --color-accent-3: #e74c3c;
 }
 
 .dark {
-  --color-background: #1e1e1e;
+  --color-background: #151515;
   --color-background-alternative: #4f4f4f;
   --color-text-default: #f0f0f0;
   --color-text-alternative: #4f4f4f;
-  --color-accent-1: #ffff00;
-  --color-accent-2: #ff00ff;
-  --color-accent-3: #00ffff;
+  --color-accent-1: #f1c40f;
+  --color-accent-2: #9b59b6;
+  --color-accent-3: #1abc9c;
 }
 /* End variables */
 
 /* General styles */
 body {
+  transition: color 0.5s, background-color 0.5s;
   background-color: var(--color-background);
   color: var(--color-text-default);
   line-height: 1.6em;
@@ -61,10 +62,14 @@ body {
 
 section {
   max-width: 42vw;
-  margin: 0 auto 2em auto;
+  margin: 0 auto 3em auto;
   overflow: hidden;
   clear: both;
   display: block;
+}
+
+article {
+  margin: 1em auto 4em auto;
 }
 
 section img {
@@ -78,12 +83,16 @@ h1 {
   display: inline;
   font-family: "Gidole", monospace;
   font-weight: bold;
-  font-weight: 600;
   letter-spacing: 0.025em;
-  font-size: 3.5rem;
+  font-size: 2.2em;
   line-height: 1.6em;
-  border-bottom: 0.4em solid;
-  border-color: var(--color-accent-2);
+  box-shadow: inset 0 -1.4rem 0 var(--color-accent-2);
+}
+
+h1::after {
+  content: "";
+  display: block;
+  margin: 0 0 1.2em 0;
 }
 
 h2 {
@@ -91,19 +100,19 @@ h2 {
   font-family: "Gidole", monospace;
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 1em;
-  margin: 2em 0 3em 0;
+  font-size: 1.2em;
+  margin: 2em 0 1em 0;
 }
 
 h3 {
   text-transform: uppercase;
   display: inline-block;
-  margin: 3em 0 1em 0;
+  margin: 1.6em 0 1em 0;
   font-family: "Gidole", monospace;
   font-weight: bold;
   font-weight: 400;
   letter-spacing: 0.025em;
-  font-size: 1.6rem;
+  font-size: 1em;
   line-height: 1.6em;
 }
 
@@ -116,18 +125,20 @@ a:visited {
   padding: 0 0.2em;
 }
 
+ul li {
+  margin: 0.2em;
+}
+
 p {
-  font-size: 1.2em;
   line-height: 1.75em;
-  margin: 1em 0 3em 0;
+  margin: 2em 0;
 }
 
 /* Footer */
 footer {
   margin-top: 6em;
   padding: 2em 0;
-  color: var(--color-background);
-  background-color: var(--color-text-default);
+  color: var(--color-text-default);
 }
 
 footer ul {
@@ -149,7 +160,6 @@ footer ul li {
 }
 
 footer ul li a {
-  background-color: transparent;
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Gidole", monospace;
@@ -186,7 +196,7 @@ footer ul li:nth-child(3) {
 
 /* Header */
 header {
-  margin: 3vw auto 3em auto;
+  margin: 3vw auto 0em auto;
   display: flex;
   flex-flow: row;
   max-width: 80vw;
@@ -199,29 +209,42 @@ header div {
   display: flex;
   flex-flow: row;
 }
-header img {
+
+.logo svg,
+.logo a {
   float: left;
-  height: 6em;
-  width: 4em;
+  height: 4em;
+  width: 3em;
+  fill: var(--color-text-default);
+  background-color: transparent;
 }
 
 /* Dark/light mode switches */
-header .switches {
+.switches {
+  display: flex;
   align-content: space-around;
   align-items: flex-start;
   justify-content: flex-end;
 }
+
+.switches svg {
+  height: 1.4em;
+  width: 1.4em;
+}
+
 .lightswitch,
 .darkswitch {
-  padding: 0.2em;
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  justify-content: center;
   border: none;
-  font-size: 1.4em;
+  border-radius: 0;
   color: var(--color-background);
-  font-weight: bold;
-  line-height: 1em;
+  height: 2em;
+  width: 2em;
 }
 .lightswitch {
-  background-color: var(--color-background);
   background-color: var(--color-background-alternative);
   color: var(--color-text-default);
 }
@@ -247,13 +270,81 @@ header .switches {
   background-color: var(--color-accent-3);
 }
 
+/* To display uls as a file tree-like list */
+
+.filetree,
+.filetree ul,
+.filetree li {
+  position: relative;
+}
+
+.filetree li {
+  margin: 0.6em 0;
+}
+
+.filetree ul {
+  list-style: none;
+  padding-left: 3.2em;
+}
+.filetree li::before,
+.filetree li::after {
+  content: "";
+  position: absolute;
+  left: -1.2em;
+}
+.filetree li::before {
+  border-top: 0.1em solid var(--color-text-default);
+  top: 0.8em;
+  width: 0.8em;
+  height: 0;
+}
+.filetree li::after {
+  border-left: 0.1em solid var(--color-text-default);
+  height: 2.6em;
+  width: 0;
+  top: 0.2em;
+}
+.filetree ul > li:last-child::after {
+  height: 0.7em;
+}
+
+/* Contact card */
+.contact-card li {
+  display: inline;
+  margin: 0 0.4em 0.4em 0;
+}
+
+.contact-card svg {
+  height: 1.4em;
+  width: 1.4em;
+  margin-right: 0.4em;
+}
+
+.contact-card a {
+  display: inline-flex;
+  flex-direction: row;
+  align-content: space-around;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 /* Smaller screen tweaks */
 @media screen and (max-width: 940px) {
+  body {
+    font-size: 22px;
+  }
+  .logo {
+    font-size: 14px;
+  }
+  .switches button {
+    font-size: 22px;
+  }
   section {
     max-width: 90vw;
   }
   header {
     max-width: 90vw;
+    margin-bottom: 2em;
   }
   footer {
     padding: 0;
@@ -261,12 +352,13 @@ header .switches {
 
   footer ul {
     flex-flow: column;
-    margin: 3em 0 0 0;
+    margin: 0;
   }
   footer ul li {
     padding: 1em;
     border-bottom: none;
     border-left: 0.5em solid;
+    margin: 0 1em;
   }
   footer ul li:nth-child(1) {
     border-bottom: none;

@@ -16,7 +16,7 @@ module.exports = function(config, item) {
         content
       });
     } catch (e) {
-      reject({ message: "Could not render template", funcError: e });
+      reject(e);
     }
   });
 };

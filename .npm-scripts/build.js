@@ -1,12 +1,19 @@
-const Grapefruit = require("grapefruit");
+const Grapefruit = require("../../grapefruit");
 const careless = require("careless-fs");
 const buildPipeline = require("./build-pipeline");
-const history = new Grapefruit.History();
+const fs = require("fs");
+
+const logfilePath = "./last-build.log";
+const log = fs.createWriteStream(logfilePath, { flags: "w" });
 
 const runner = new Grapefruit({
-  emitter: history.push,
+  emitter: event => {
+    log.write(JSON.stringify(event, null, 2));
+    log.write("\n");
+  },
   funcs: {
     listDirectory: require("./funcs/listDirectory.js"),
+    imageMin: require("./funcs/imageMin.js"),
     decorateFileObject: require("./funcs/decorateFileObject.js"),
     readInFile: require("./funcs/readInFile.js"),
     minifyHtml: require("./funcs/minifyHtml.js"),
@@ -15,6 +22,7 @@ const runner = new Grapefruit({
     renderTemplate: require("./funcs/renderTemplate.js"),
     markdownToHtml: require("./funcs/markdownToHtml.js"),
     parseJson: require("./funcs/parseJson.js"),
+    rmrf: require("./funcs/rmrf.js"),
     copy: require("./funcs/copy.js")
   }
 });
@@ -22,34 +30,17 @@ const runner = new Grapefruit({
 const pipeline = runner.runPipeline(buildPipeline);
 pipeline
   .then(function(res) {
-    careless
-      .write({
-        path: "last-build.log",
-        content: JSON.stringify(history.get(), null, 2)
-      })
-      .then(file => {
-        console.log(`History written to ${file.path}`);
-      })
-      .catch(e => {
-        console.log(
-          `History could not be written: ${JSON.stringify(e, null, 2)}`
-        );
-      });
     console.log("Pipeline complete.");
+    log.close();
+    console.log(`History written to ${logfilePath}`);
   })
   .catch(function(err) {
-    careless
-      .write({
-        path: "last-build.log",
-        content: JSON.stringify(history.get(), null, 2)
-      })
-      .then(file => {
-        console.log(`History written to ${file.path}`);
-      })
-      .catch(e => {
-        console.log(
-          `History could not be written: ${JSON.stringify(e, null, 2)}`
-        );
-      });
-    console.log("Pipeline error:", JSON.stringify(err.message, null, 2));
+    console.log(
+      "Pipeline error:",
+      err.message
+        ? JSON.stringify(err.message, null, 2)
+        : JSON.stringify(err, null, 2)
+    );
+    log.close();
+    console.log(`History written to ${logfilePath}`);
   });

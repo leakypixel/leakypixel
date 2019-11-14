@@ -1,24 +1,20 @@
-const fsN = require("fs");
-const path = require("path");
+const recursive = require("recursive-readdir");
 
 module.exports = function(config, item) {
   return new Promise(function(resolve, reject) {
-    fsN.readdir(config.directory, { withFileTypes: true }, function(
-      err,
-      dirListing
-    ) {
+    recursive(config.directory, function(err, dirListing) {
       if (err) {
         reject(err);
       }
       resolve(
-        dirListing.reduce((filenames, fileDirent) => {
-          return fileDirent.isFile()
-            ? filenames.concat({
+        dirListing
+          ? dirListing.reduce((filenames, file) => {
+              return filenames.concat({
                 ...item,
-                path: path.join(config.directory, fileDirent.name)
-              })
-            : filenames;
-        }, [])
+                path: file
+              });
+            }, [])
+          : []
       );
     });
   });

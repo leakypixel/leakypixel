@@ -6,19 +6,37 @@ function getNiceNameFromFilename(filename) {
     " "
   );
 }
+function toNameContentObject(items) {
+  return items.reduce(
+    (contentObject, item) =>
+      Object.assign({}, contentObject, {
+        [item.name]: item.content
+      }),
+    {}
+  );
+}
 
-function meta(config, item, meta) {
-  const outputDir = path.join(meta.dir.replace(config.baseDir, ""));
+function typeDecorator(config, item, meta) {
   return {
     ...item,
     name: meta.name,
     niceName: getNiceNameFromFilename(meta.name),
+    dir: meta.dir,
+    type: meta.dir.split("/")[0],
+    tags: [].concat(item.tags, meta.dir.split("/"), [meta.name])
+  };
+}
+function outputDecorator(config, item, meta) {
+  const outputDir = path.join(meta.dir.replace(config.baseDir, ""));
+  return {
+    ...item,
     outputPath: `${path.join(outputDir, meta.name)}`,
-    outputExtension: ".html"
+    outputDir: outputDir,
+    outputExtension: config.outputExtension || meta.ext
   };
 }
 
-function addBlurb(config, item, meta) {
+function articleDecorator(config, item, meta) {
   const introStart = item.content.indexOf("<p>") + 3;
   const introEnd = item.content.indexOf("</p>");
   let cutoff;
@@ -28,14 +46,27 @@ function addBlurb(config, item, meta) {
     cutoff = introEnd;
   }
   const blurb = item.content.substring(introStart, cutoff);
+  const titleStart = item.content.indexOf("<h1>") + 4;
+  const titleEnd = item.content.indexOf("</h1>");
+  const title = item.content.substring(titleStart, titleEnd) || meta.name;
   return {
     ...item,
-    blurb: blurb
+    niceName: title,
+    blurb: blurb,
+    tags: [].concat(item.tags, ["article"])
   };
 }
 
 module.exports = {
   steps: [
+    [
+      {
+        func: "rmrf",
+        item: {
+          path: "./output"
+        }
+      }
+    ],
     [
       {
         name: "Read in markdown for index",
@@ -44,129 +75,179 @@ module.exports = {
           directory: "./content"
         },
         item: {
-          tags: ["index", "markdown"]
+          tags: ["markdown"]
         }
       },
       {
-        name: "Read in markdown for articles",
         func: "listDirectory",
         config: {
-          directory: "./content/articles"
+          directory: "./images"
         },
-        item: {
-          tags: ["articles", "markdown"]
-        }
+        item: {}
       },
       {
         func: "listDirectory",
         config: {
           directory: "./styles"
         },
-        item: {
-          tags: ["styles"]
-        }
+        item: {}
       },
       {
         func: "listDirectory",
         config: {
-          directory: "./templates"
+          directory: "./partials"
         },
-        item: {
-          tags: ["templates"]
-        }
-      }
-    ],
-    [
+        item: {}
+      },
       {
-        func: "readInFile",
-        selector: ({ selectMany }) => selectMany(item => Boolean(item.path))
+        func: "listDirectory",
+        config: {
+          directory: "./pages"
+        },
+        item: {}
       }
     ],
     [
       {
         func: "decorateFileObject",
-        selector: ({ selectMany }) => selectMany(item => true),
+        selector: state => state.selectAll(),
         config: {
-          decorators: [meta],
-          baseDir: "content"
+          decorators: [typeDecorator]
+        }
+      }
+    ],
+    [
+      {
+        func: "decorateFileObject",
+        selector: state => state.selectByTag("content"),
+        config: {
+          decorators: [outputDecorator],
+          baseDir: "content",
+          outputExtension: ".html"
+        }
+      },
+      {
+        func: "decorateFileObject",
+        selector: state => state.selectByTag("styles"),
+        config: {
+          decorators: [outputDecorator],
+          baseDir: "styles",
+          outputExtension: ".css"
+        }
+      },
+      {
+        func: "copy",
+        selector: state => state.matchingAnyTag(["partials", "svgs", "pages"]),
+        config: {}
+      }
+    ],
+    [
+      {
+        func: "imageMin",
+        selector: state =>
+          state.selectByTag("images").not(state.selectByTag("svgs")),
+        allowEmpty: true,
+        config: {
+          outputDir: "./output"
+        }
+      },
+      {
+        func: "readInFile",
+        selector: state => {
+          console.log(state.matchingAnyTag(["partials", "svgs"]));
+          return state.not(
+            state.selectByTag("images").not(state.selectByTag("svgs"))
+          );
         }
       }
     ],
     [
       {
         func: "markdownToHtml",
-        selector: ({ selectByTag }) => selectByTag("markdown")
+        selector: state => state.selectByTag("markdown")
       },
       {
         func: "compileTemplates",
-        selector: ({ selectByTag }) => selectByTag("templates")
+        selector: state => state.selectByTag("pages"),
+        getConfig: state => ({
+          partials: state.selectByTag("partials")
+        })
       },
       {
         func: "copy",
-        selector: ({ selectByTag }) => selectByTag("styles")
+        selector: state =>
+          state.selectByTag("styles").and(state.selectByTag("svgs"))
       }
     ],
     [
       {
         func: "decorateFileObject",
-        selector: ({ selectByTag }) => selectByTag("articles"),
+        selector: state =>
+          state
+            .selectByTag("blog")
+            .selectByTag("markdown")
+            .not(state.selectByTag("index")),
         config: {
-          decorators: [addBlurb],
+          decorators: [articleDecorator],
           cutoffLength: 120
         }
       },
       {
         func: "copy",
-        selector: ({ selectByTag }) =>
-          [].concat(
-            selectByTag("templates"),
-            selectByTag("styles"),
-            selectByTag("index")
-          )
+        selector: state => {
+          return state.matchingAnyTag([
+            "pages",
+            "styles",
+            "svgs",
+            "index",
+            "contact"
+          ]);
+        }
       }
     ],
     [
       {
         func: "renderTemplate",
-        selector: ({ selectMany }) =>
-          selectMany(item => item.tags.includes("articles")),
-        getConfig: ({ selectOne }) => ({
-          meta: {
-            styles: selectOne(item => item.name === "main")
-          },
-          template: selectOne(
-            item => item.tags.includes("templates") && item.name === "article"
-          )
-        })
+        deferConfig: true,
+        selector: state => state.selectByTag("content"),
+        getConfig: (state, currentItem) => {
+          const matchingTemplate = state
+            .selectByTag("pages")
+            .mostMatchingTags(currentItem.tags);
+          console.log(
+            `Rendering ${currentItem.dir}/${currentItem.name} with ${
+              matchingTemplate.dir
+            }/${matchingTemplate.name}`
+          );
+          return {
+            meta: {
+              title: currentItem.niceName,
+              svgs: toNameContentObject(state.selectByTag("svgs")),
+              partials: toNameContentObject(state.selectByTag("partials")),
+              entries: state
+                .selectByTag("blog")
+                .selectByTag("markdown")
+                .not(state.selectByTag("index"))
+            },
+            template: matchingTemplate
+          };
+        }
       },
       {
-        func: "renderTemplate",
-        selector: ({ selectOne }) =>
-          selectOne(
-            item => item.tags.includes("markdown") && item.name === "index"
-          ),
-        getConfig: ({ selectByTag, selectOne }) => ({
-          meta: {
-            title: "All entries",
-            entries: selectByTag("articles"),
-            styles: selectOne(item => item.name === "main")
-          },
-          template: selectOne(
-            item => item.tags.includes("templates") && item.name === "index"
-          )
-        })
+        func: "copy",
+        selector: state => state.selectByTag("styles")
       }
     ],
     [
       {
         func: "minifyHtml",
-        selector: ({ selectMany }) => selectMany(item => true)
+        selector: state => state.selectAll()
       }
     ],
     [
       {
         func: "writeOutFile",
-        selector: ({ selectMany }) => selectMany(item => true),
+        selector: state => state.selectAll(),
         config: { outputDir: "./output" }
       }
     ]

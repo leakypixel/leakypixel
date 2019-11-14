@@ -1,0 +1,15 @@
+{{> header }}
+<section>
+  {{{ item.content }}}
+</section>
+<section>
+{{#each meta.entries}}
+  <article>
+    <h2>
+      <a href="{{outputPath}}">{{{ niceName }}}</a>
+    </h2>
+    <p>{{{ blurb }}}</p>
+  </article>
+{{/each}}
+</section>
+{{> footer }}

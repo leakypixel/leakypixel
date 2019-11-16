@@ -2,7 +2,7 @@ def remote = [:]
 remote.name = "thule"
 remote.host = "leakypixel.net"
 remote.allowAnyHosts = true
-
+remote.fileTransfer = "scp"
 pipeline {
   agent {
     docker {
@@ -24,9 +24,6 @@ pipeline {
       }
     }
     stage("Deploy") {
-      environment {
-        SERVICE_CREDS = credentials('thule-deploy-ssh-key')
-      }
       steps {
         script {
           stage("Push over ssh") {
@@ -37,8 +34,10 @@ pipeline {
               usernameVariable: 'userName')]) {
                   remote.user = userName
                   remote.passphrase = passphrase
-                  remote.identityFile = "${SERVICE_CREDS}"
-                  sshPut remote: remote, from: './output/', into: './sites/leakypixel.net'
+                  remote.identityFile = identity
+                  sshPut remote: remote, from:
+                  '/var/jenkins_home/workspace/leakypixel/output', into:
+                  './sites/leakypixel.net'
             }
           }
         }

@@ -68,6 +68,12 @@ section {
   display: block;
 }
 
+code {
+  background-color: var(--color-background-alternative);
+  font-size: 1.2em;
+  padding: 0 0.2em;
+}
+
 article {
   margin: 1em auto 4em auto;
 }
@@ -326,6 +332,18 @@ header div {
   align-content: space-around;
   align-items: center;
   justify-content: flex-start;
+}
+
+.article-meta {
+  display: flex;
+  padding-top: 4em;
+  font-size: 0.8em;
+  flex-direction: column;
+}
+
+.article-meta span {
+  display: inline-block;
+  flex: 1;
 }
 
 /* Smaller screen tweaks */

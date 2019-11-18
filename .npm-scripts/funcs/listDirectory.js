@@ -2,7 +2,8 @@ const recursive = require("recursive-readdir");
 
 module.exports = function(config, item) {
   return new Promise(function(resolve, reject) {
-    recursive(config.directory, function(err, dirListing) {
+    const dirToList = config.directory ? config.directory : item.path;
+    recursive(dirToList, function(err, dirListing) {
       if (err) {
         reject(err);
       }

@@ -1,11 +1,7 @@
-const path = require("path");
+const typeDecorator = require("./decorators/typeDecorator");
+const outputDecorator = require("./decorators/outputDecorator");
+const articleDecorator = require("./decorators/articleDecorator");
 
-function getNiceNameFromFilename(filename) {
-  return (filename.charAt(0).toUpperCase() + filename.slice(1)).replace(
-    /-/g,
-    " "
-  );
-}
 function toNameContentObject(items) {
   return items.reduce(
     (contentObject, item) =>
@@ -14,47 +10,6 @@ function toNameContentObject(items) {
       }),
     {}
   );
-}
-
-function typeDecorator(config, item, meta) {
-  return {
-    ...item,
-    name: meta.name,
-    niceName: getNiceNameFromFilename(meta.name),
-    dir: meta.dir,
-    type: meta.dir.split("/")[0],
-    tags: [].concat(item.tags, meta.dir.split("/"), [meta.name])
-  };
-}
-function outputDecorator(config, item, meta) {
-  const outputDir = path.join(meta.dir.replace(config.baseDir, ""));
-  return {
-    ...item,
-    outputPath: `${path.join(outputDir, meta.name)}`,
-    outputDir: outputDir,
-    outputExtension: config.outputExtension || meta.ext
-  };
-}
-
-function articleDecorator(config, item, meta) {
-  const introStart = item.content.indexOf("<p>") + 3;
-  const introEnd = item.content.indexOf("</p>");
-  let cutoff;
-  if (introEnd - introStart > config.cutoffLength) {
-    cutoff = item.content.indexOf(".", introStart + config.cutoffLength) + 1;
-  } else {
-    cutoff = introEnd;
-  }
-  const blurb = item.content.substring(introStart, cutoff);
-  const titleStart = item.content.indexOf("<h1>") + 4;
-  const titleEnd = item.content.indexOf("</h1>");
-  const title = item.content.substring(titleStart, titleEnd) || meta.name;
-  return {
-    ...item,
-    niceName: title,
-    blurb: blurb,
-    tags: [].concat(item.tags, ["article"])
-  };
 }
 
 module.exports = {
@@ -71,40 +26,13 @@ module.exports = {
       {
         name: "Read in markdown for index",
         func: "listDirectory",
-        config: {
-          directory: "./content"
-        },
-        item: {
-          tags: ["markdown"]
-        }
-      },
-      {
-        func: "listDirectory",
-        config: {
-          directory: "./images"
-        },
-        item: {}
-      },
-      {
-        func: "listDirectory",
-        config: {
-          directory: "./styles"
-        },
-        item: {}
-      },
-      {
-        func: "listDirectory",
-        config: {
-          directory: "./partials"
-        },
-        item: {}
-      },
-      {
-        func: "listDirectory",
-        config: {
-          directory: "./pages"
-        },
-        item: {}
+        selector: state => [
+          { path: "./content", tags: ["markdown"] },
+          { path: "./images" },
+          { path: "./styles" },
+          { path: "./partials" },
+          { path: "./pages" }
+        ]
       }
     ],
     [
@@ -112,7 +40,8 @@ module.exports = {
         func: "decorateFileObject",
         selector: state => state.selectAll(),
         config: {
-          decorators: [typeDecorator]
+          decorators: [typeDecorator],
+          defaultName: "Home"
         }
       }
     ],
@@ -154,7 +83,6 @@ module.exports = {
       {
         func: "readInFile",
         selector: state => {
-          console.log(state.matchingAnyTag(["partials", "svgs"]));
           return state.not(
             state.selectByTag("images").not(state.selectByTag("svgs"))
           );
@@ -177,6 +105,29 @@ module.exports = {
         func: "copy",
         selector: state =>
           state.selectByTag("styles").and(state.selectByTag("svgs"))
+      }
+    ],
+    [
+      {
+        func: "gitAdded",
+        selector: state =>
+          state
+            .selectByTag("blog")
+            .selectByTag("markdown")
+            .not(state.selectByTag("index")),
+        config: {}
+      },
+      {
+        func: "copy",
+        selector: state => {
+          return state.matchingAnyTag([
+            "pages",
+            "styles",
+            "svgs",
+            "index",
+            "contact"
+          ]);
+        }
       }
     ],
     [

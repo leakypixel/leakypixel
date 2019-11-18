@@ -23,6 +23,7 @@ const runner = new Grapefruit({
     markdownToHtml: require("./funcs/markdownToHtml.js"),
     parseJson: require("./funcs/parseJson.js"),
     rmrf: require("./funcs/rmrf.js"),
+    gitAdded: require("./funcs/gitAdded.js"),
     copy: require("./funcs/copy.js")
   }
 });

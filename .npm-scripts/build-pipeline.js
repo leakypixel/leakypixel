@@ -31,6 +31,7 @@ module.exports = {
           { path: "./images" },
           { path: "./styles" },
           { path: "./partials" },
+          { path: "./fonts" },
           { path: "./pages" }
         ]
       }
@@ -46,6 +47,15 @@ module.exports = {
       }
     ],
     [
+      {
+        func: "decorateFileObject",
+        selector: state => state.selectByTag("fonts"),
+        config: {
+          decorators: [outputDecorator],
+          baseDir: "content",
+          outputExtension: ".ttf"
+        }
+      },
       {
         func: "decorateFileObject",
         selector: state => state.selectByTag("content"),
@@ -71,6 +81,11 @@ module.exports = {
       }
     ],
     [
+      {
+        func: "writeOutFile",
+        selector: state => state.selectByTag("fonts"),
+        config: { outputDir: "./output" }
+      },
       {
         func: "imageMin",
         selector: state =>

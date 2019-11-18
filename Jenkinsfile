@@ -23,26 +23,23 @@ pipeline {
         sh 'npm run build'
       }
     }
-    stage("Deploy") {
+    stage('SSH transfer') {
       steps {
-        script {
-          stage("Push over ssh") {
-            withCredentials([sshUserPrivateKey(
-              credentialsId: 'thule-deploy-ssh-key',
-              keyFileVariable: 'identity',
-              passphraseVariable: 'passphrase',
-              usernameVariable: 'userName')]) {
-                  remote.user = userName
-                  remote.passphrase = passphrase
-                  remote.identityFile = identity
-                  sshPut remote: remote, from:
-                  '/var/jenkins_home/workspace/leakypixel/output', into:
-                  './sites/leakypixel.net', filterRegex: '/\.[a-z]{3,4}$/',
-            }
-          }
-        }
+        sshPublisher(
+          continueOnError: false, failOnError: true,
+          publishers: [
+            sshPublisherDesc(
+              configName: "leakypixel.net",
+              verbose: true,
+              transfers: [
+                sshTransfer(
+                  sourceFiles: "output/",
+                  removePrefix: "output/"
+                )
+              ])
+          ]
+        )
       }
     }
-  }  
+  } 
 }
-

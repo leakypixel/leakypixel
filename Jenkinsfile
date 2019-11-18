@@ -37,7 +37,7 @@ pipeline {
                   remote.identityFile = identity
                   sshPut remote: remote, from:
                   '/var/jenkins_home/workspace/leakypixel/output', into:
-                  './sites/leakypixel.net', filterRegex: /\.[a-z]{3,4}$/
+                  './sites/leakypixel.net', filterRegex: '/\.[a-z]{3,4}$/',
             }
           }
         }

@@ -1,2 +1,1 @@
-# All entries
-All blog entries.
+# Blog

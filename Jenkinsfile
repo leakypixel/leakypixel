@@ -33,6 +33,7 @@ pipeline {
               verbose: true,
               transfers: [
                 sshTransfer(
+                  cleanRemote: true,
                   sourceFiles: "output/",
                   removePrefix: "output/"
                 )

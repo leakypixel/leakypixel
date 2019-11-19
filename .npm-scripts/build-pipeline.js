@@ -32,6 +32,7 @@ module.exports = {
           { path: "./styles" },
           { path: "./partials" },
           { path: "./fonts" },
+          { path: "./js" },
           { path: "./pages" }
         ]
       }
@@ -63,6 +64,14 @@ module.exports = {
           decorators: [outputDecorator],
           baseDir: "content",
           outputExtension: ".html"
+        }
+      },
+      {
+        func: "decorateFileObject",
+        selector: state => state.selectByTag("js"),
+        config: {
+          decorators: [outputDecorator],
+          outputExtension: ".js"
         }
       },
       {
@@ -119,7 +128,9 @@ module.exports = {
       {
         func: "copy",
         selector: state =>
-          state.selectByTag("styles").and(state.selectByTag("svgs"))
+          state
+            .selectByTag("styles")
+            .and(state.selectByTag("svgs").and(state.selectByTag("js")))
       }
     ],
     [
@@ -140,7 +151,8 @@ module.exports = {
             "styles",
             "svgs",
             "index",
-            "contact"
+            "contact",
+            "js"
           ]);
         }
       }
@@ -166,7 +178,8 @@ module.exports = {
             "styles",
             "svgs",
             "index",
-            "contact"
+            "contact",
+            "js"
           ]);
         }
       }
@@ -201,13 +214,18 @@ module.exports = {
       },
       {
         func: "copy",
-        selector: state => state.selectByTag("styles")
+        selector: state =>
+          state.selectByTag("styles").and(state.selectByTag("js"))
       }
     ],
     [
       {
         func: "minifyHtml",
-        selector: state => state.selectAll()
+        selector: state => state.selectAll().not(state.selectByTag("js"))
+      },
+      {
+        func: "minifyJS",
+        selector: state => state.selectByTag("js")
       }
     ],
     [

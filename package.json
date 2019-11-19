@@ -16,8 +16,14 @@
     "url": "https://github.com/leakypixel/leakypixel/issues"
   },
   "dependencies": {
+    "ecstatic": "^4.1.2"
+  },
+  "homepage": "https://leakypixel.net/",
+  "devDependencies": {
+    "recursive-readdir": "^2.2.2",
+    "simple-git": "^1.126.0",
+    "uglify-js": "^3.6.9",
     "careless-fs": "^1.0.0",
-    "ecstatic": "^4.1.2",
     "grapefruit": "github:leakypixel/grapefruit",
     "handlebars": "^4.5.3",
     "html-minifier": "^3.5.21",
@@ -27,11 +33,5 @@
     "imagemin-svgo": "^7.0.0",
     "markdown": "^0.5.0",
     "rimraf": "^3.0.0"
-  },
-  "homepage": "https://leakypixel.net/",
-  "devDependencies": {
-    "moment": "^2.24.0",
-    "recursive-readdir": "^2.2.2",
-    "simple-git": "^1.126.0"
   }
 }

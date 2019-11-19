@@ -6,6 +6,6 @@ module.exports = function outputDecorator(config, item, meta) {
     ...item,
     outputPath: `${path.join(outputDir, meta.name)}`,
     outputDir: outputDir,
-    outputExtension: config.outputExtension || meta.ext
+    outputExtension: item.outputExtension || config.outputExtension || meta.ext
   };
 };

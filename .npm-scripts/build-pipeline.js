@@ -26,13 +26,14 @@ module.exports = {
       {
         name: "Read in markdown for index",
         func: "listDirectory",
+
         selector: state => [
-          { path: "./content", tags: ["markdown"] },
+          { path: "./content", tags: ["markdown"], outputExtension: ".html" },
           { path: "./images" },
-          { path: "./styles" },
+          { path: "./styles", outputExtension: ".css" },
           { path: "./partials" },
-          { path: "./fonts" },
-          { path: "./js" },
+          { path: "./fonts", outputExtension: ".ttf" },
+          { path: "./js", outputExtension: ".js" },
           { path: "./pages" }
         ]
       }
@@ -50,37 +51,11 @@ module.exports = {
     [
       {
         func: "decorateFileObject",
-        selector: state => state.selectByTag("fonts"),
+        selector: state =>
+          state.matchingAnyTag(["fonts", "content", "js", "styles"]),
         config: {
           decorators: [outputDecorator],
-          baseDir: "content",
-          outputExtension: ".ttf"
-        }
-      },
-      {
-        func: "decorateFileObject",
-        selector: state => state.selectByTag("content"),
-        config: {
-          decorators: [outputDecorator],
-          baseDir: "content",
-          outputExtension: ".html"
-        }
-      },
-      {
-        func: "decorateFileObject",
-        selector: state => state.selectByTag("js"),
-        config: {
-          decorators: [outputDecorator],
-          outputExtension: ".js"
-        }
-      },
-      {
-        func: "decorateFileObject",
-        selector: state => state.selectByTag("styles"),
-        config: {
-          decorators: [outputDecorator],
-          baseDir: "styles",
-          outputExtension: ".css"
+          baseDir: "content"
         }
       },
       {
@@ -94,25 +69,20 @@ module.exports = {
       },
       {
         func: "copy",
-        selector: state => state.matchingAnyTag(["partials", "svgs", "pages"]),
-        config: {}
+        selector: state => state.matchingAnyTag(["partials", "svgs", "pages"])
       }
     ],
     [
       {
-        func: "imageMin",
-        selector: state => state.selectByTag("favicon"),
-        config: {
-          outputDir: "./output"
-        }
+        func: "copyFileTo",
+        selector: state => state.selectByTag("fonts"),
+        config: { outputDir: "./output" }
       },
       {
         func: "imageMin",
         allowEmpty: true,
         selector: state =>
-          state
-            .selectByTag("images")
-            .not(state.selectByTag("svgs").and(state.selectByTag("favicon"))),
+          state.selectByTag("images").not(state.selectByTag("svgs")),
         config: {
           outputDir: "./output"
         }
@@ -121,17 +91,14 @@ module.exports = {
         func: "readInFile",
         selector: state => {
           return state.not(
-            state.selectByTag("images").not(state.selectByTag("svgs"))
+            state
+              .selectByTag("images")
+              .not(state.selectByTag("svgs").and(state.selectByTag("fonts")))
           );
         }
       }
     ],
     [
-      {
-        func: "writeOutFile",
-        selector: state => state.selectByTag("fonts"),
-        config: { outputDir: "./output" }
-      },
       {
         func: "markdownToHtml",
         selector: state => state.selectByTag("markdown")
@@ -145,10 +112,7 @@ module.exports = {
       },
       {
         func: "copy",
-        selector: state =>
-          state
-            .selectByTag("styles")
-            .and(state.selectByTag("svgs").and(state.selectByTag("js")))
+        selector: state => state.matchingAnyTag(["styles", "svgs", "js"])
       }
     ],
     [

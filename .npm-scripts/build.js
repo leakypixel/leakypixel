@@ -16,6 +16,7 @@ const runner = new Grapefruit({
     imageMin: require("./funcs/imageMin.js"),
     decorateFileObject: require("./funcs/decorateFileObject.js"),
     readInFile: require("./funcs/readInFile.js"),
+    copyFileTo: require("./funcs/copyFileTo.js"),
     minifyHtml: require("./funcs/minifyHtml.js"),
     minifyJS: require("./funcs/minifyJS.js"),
     writeOutFile: require("./funcs/writeOutFile.js"),

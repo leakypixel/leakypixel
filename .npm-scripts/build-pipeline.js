@@ -84,6 +84,15 @@ module.exports = {
         }
       },
       {
+        func: "decorateFileObject",
+        selector: state => state.selectByTag("favicon"),
+        config: {
+          decorators: [outputDecorator],
+          baseDir: "images",
+          outputExtension: ".ico"
+        }
+      },
+      {
         func: "copy",
         selector: state => state.matchingAnyTag(["partials", "svgs", "pages"]),
         config: {}
@@ -91,15 +100,19 @@ module.exports = {
     ],
     [
       {
-        func: "writeOutFile",
-        selector: state => state.selectByTag("fonts"),
-        config: { outputDir: "./output" }
+        func: "imageMin",
+        selector: state => state.selectByTag("favicon"),
+        config: {
+          outputDir: "./output"
+        }
       },
       {
         func: "imageMin",
-        selector: state =>
-          state.selectByTag("images").not(state.selectByTag("svgs")),
         allowEmpty: true,
+        selector: state =>
+          state
+            .selectByTag("images")
+            .not(state.selectByTag("svgs").and(state.selectByTag("favicon"))),
         config: {
           outputDir: "./output"
         }
@@ -114,6 +127,11 @@ module.exports = {
       }
     ],
     [
+      {
+        func: "writeOutFile",
+        selector: state => state.selectByTag("fonts"),
+        config: { outputDir: "./output" }
+      },
       {
         func: "markdownToHtml",
         selector: state => state.selectByTag("markdown")

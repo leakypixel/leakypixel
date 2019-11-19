@@ -3,8 +3,10 @@
   {{{ item.content }}}
 </section>
 <section class="article-meta">
-  <span>Published: {{ item.added.date }}-{{ item.added.month
-    }}-{{item.added.year}}</span>
   <span>Comments, corrections and hatemail to hi at this domain.</span>
+  <span>Published {{ item.added.date }}-{{ item.added.month
+    }}-{{item.added.year}} in commit <a
+    href="https://github.com/leakypixel/leakypixel/commit/{{ item.added.commitId
+    }}">{{ item.added.commitId }}</a>.</span>
 </section>
 {{> footer }}

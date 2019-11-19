@@ -1,5 +1,28 @@
 const simpleGit = require("simple-git")();
 
+function getSplitTime(date) {
+  return {
+    year: date.getUTCFullYear(),
+    month: date.getUTCMonth(),
+    date: date.getUTCDate(),
+    hours: date.getUTCHours(),
+    minutes: date.getUTCMinutes()
+  };
+}
+
+function getFileDetails(commits) {
+  const firstCommit = commits[commits.length - 1] || {};
+  const lastCommit = commits[0] || {};
+  const addDate = new Date(firstCommit.date);
+  const modifiedDate = new Date(lastCommit.date);
+  return {
+    added: { ...getSplitTime(addDate), commitId: firstCommit.hash },
+    modified: { ...getSplitTime(modifiedDate), commitId: lastCommit.hash },
+    authorName: firstCommit.author_name || "not committed yet",
+    authorEmail: firstCommit.author_email || "not committed yet"
+  };
+}
+
 module.exports = function gitAdded(config, item) {
   return new Promise((resolve, reject) => {
     simpleGit.log(
@@ -19,36 +42,10 @@ module.exports = function gitAdded(config, item) {
         if (err) {
           reject(e);
         } else {
-          const firstCommit = res.all[res.all.length - 1];
-          if (firstCommit) {
-            const commitDate = new Date(firstCommit.date);
-            resolve({
-              ...item,
-              added: {
-                year: commitDate.getUTCFullYear(),
-                month: commitDate.getUTCMonth(),
-                date: commitDate.getUTCDate(),
-                hours: commitDate.getUTCHours(),
-                minutes: commitDate.getUTCMinutes()
-              },
-              authorName: firstCommit.author_name,
-              authorEmail: firstCommit.author_email
-            });
-          } else {
-            const commitDate = new Date();
-            resolve({
-              ...item,
-              added: {
-                year: commitDate.getUTCFullYear(),
-                month: commitDate.getUTCMonth(),
-                date: commitDate.getUTCDate(),
-                hours: commitDate.getUTCHours(),
-                minutes: commitDate.getUTCMinutes()
-              },
-              authorName: "not committed yet",
-              authorEmail: "not committed yet"
-            });
-          }
+          resolve({
+            ...item,
+            ...getFileDetails(res.all)
+          });
         }
       }
     );

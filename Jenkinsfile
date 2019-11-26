@@ -1,8 +1,3 @@
-def remote = [:]
-remote.name = "thule"
-remote.host = "leakypixel.net"
-remote.allowAnyHosts = true
-remote.fileTransfer = "scp"
 pipeline {
   agent {
     docker {
@@ -29,11 +24,12 @@ pipeline {
           continueOnError: false, failOnError: true,
           publishers: [
             sshPublisherDesc(
-              configName: "leakypixel.net",
+              configName: "thule static",
               verbose: true,
               transfers: [
                 sshTransfer(
                   cleanRemote: true,
+                  remoteDirectory: "leakypixel.net",
                   sourceFiles: "output/",
                   removePrefix: "output/"
                 )

@@ -1,10 +1,12 @@
-const markdown = require("markdown").markdown;
+const hubdown = require("hubdown");
 
 module.exports = function(config, item) {
   return new Promise(function(resolve) {
-    resolve({
-      ...item,
-      content: markdown.toHTML(item.content)
+    hubdown(item.content, { ignore: ["autolinkHeadings"] }).then(doc => {
+      resolve({
+        ...item,
+        content: doc.content
+      });
     });
   });
 };

@@ -52,7 +52,9 @@ module.exports = {
       {
         func: "decorateFileObject",
         selector: state =>
-          state.matchingAnyTag(["fonts", "content", "js", "styles"]),
+          state
+            .matchingAnyTag(["fonts", "content", "js", "styles"])
+            .and(state.selectByTag("images").not(state.selectByTag("favicon"))),
         config: {
           decorators: [outputDecorator],
           baseDir: "content"

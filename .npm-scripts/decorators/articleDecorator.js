@@ -8,7 +8,7 @@ module.exports = function articleDecorator(config, item, meta) {
     cutoff = introEnd;
   }
   const blurb = item.content.substring(introStart, cutoff);
-  const titleStart = item.content.indexOf("<h1>") + 4;
+  const titleStart = item.content.indexOf(">", item.content.indexOf("<h1")) + 1;
   const titleEnd = item.content.indexOf("</h1>");
   const title = item.content.substring(titleStart, titleEnd) || meta.name;
   return {

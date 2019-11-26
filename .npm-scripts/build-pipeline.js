@@ -191,6 +191,7 @@ module.exports = {
                 .selectByTag("blog")
                 .selectByTag("markdown")
                 .not(state.selectByTag("index"))
+                .sort((a, b) => b.added.timestamp - a.added.timestamp)
             },
             template: matchingTemplate
           };

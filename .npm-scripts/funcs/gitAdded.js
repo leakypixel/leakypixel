@@ -6,7 +6,8 @@ function getSplitTime(date) {
     month: date.getUTCMonth(),
     date: date.getUTCDate(),
     hours: date.getUTCHours(),
-    minutes: date.getUTCMinutes()
+    minutes: date.getUTCMinutes(),
+    timestamp: Math.round(date.getTime() / 1000)
   };
 }
 

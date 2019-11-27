@@ -151,7 +151,7 @@ module.exports = {
             .not(state.selectByTag("index")),
         config: {
           decorators: [articleDecorator],
-          cutoffLength: 120
+          cutoffLength: 180
         }
       },
       {

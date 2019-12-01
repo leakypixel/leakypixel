@@ -30,6 +30,7 @@ module.exports = {
         selector: state => [
           { path: "./content", tags: ["markdown"], outputExtension: ".html" },
           { path: "./images" },
+          { path: "./static" },
           { path: "./styles", outputExtension: ".css" },
           { path: "./partials" },
           { path: "./fonts", outputExtension: ".ttf" },
@@ -70,6 +71,14 @@ module.exports = {
         }
       },
       {
+        func: "decorateFileObject",
+        selector: state => state.selectByTag("static"),
+        config: {
+          decorators: [outputDecorator],
+          baseDir: "static"
+        }
+      },
+      {
         func: "copy",
         selector: state => state.matchingAnyTag(["partials", "svgs", "pages"])
       }
@@ -77,7 +86,7 @@ module.exports = {
     [
       {
         func: "copyFileTo",
-        selector: state => state.selectByTag("fonts"),
+        selector: state => state.matchingAnyTag(["fonts", "static"]),
         config: { outputDir: "./output" }
       },
       {

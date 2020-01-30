@@ -33,7 +33,7 @@ module.exports = {
           { path: "./static" },
           { path: "./styles", outputExtension: ".css" },
           { path: "./partials" },
-          { path: "./fonts", outputExtension: ".ttf" },
+          { path: "./fonts" },
           { path: "./js", outputExtension: ".js" },
           { path: "./pages" }
         ]

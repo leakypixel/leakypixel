@@ -10,7 +10,7 @@
   --color-background: #151515;
   --color-background-alternative: #4f4f4f;
   --color-text-default: #f0f0f0;
-  --color-text-alternative: #4f4f4f;
+  --color-text-alternative: #808080;
   --color-accent-1: #f1c40f;
   --color-accent-2: #9b59b6;
   --color-accent-3: #1abc9c;
@@ -22,6 +22,7 @@
     --color-background: #f0f0f0;
     --color-background-alternative: #afafaf;
     --color-text-default: #0e0e0e;
+    --color-text-alternative: #4f4f4f;
     --color-accent-1: #3498db;
     --color-accent-2: #2ecc71;
     --color-accent-3: #e74c3c;
@@ -33,6 +34,7 @@
   --color-background: #f0f0f0;
   --color-background-alternative: #afafaf;
   --color-text-default: #0e0e0e;
+  --color-text-alternative: #4f4f4f;
   --color-accent-1: #3498db;
   --color-accent-2: #2ecc71;
   --color-accent-3: #e74c3c;
@@ -42,7 +44,7 @@
   --color-background: #151515;
   --color-background-alternative: #4f4f4f;
   --color-text-default: #f0f0f0;
-  --color-text-alternative: #4f4f4f;
+  --color-text-alternative: #808080;
   --color-accent-1: #f1c40f;
   --color-accent-2: #9b59b6;
   --color-accent-3: #1abc9c;
@@ -142,7 +144,7 @@ a:active,
 a:visited {
   background-color: var(--color-accent-1);
   color: var(--color-background);
-  text-decoration: underline;
+  text-decoration: none;
   padding: 0 0.2em;
 }
 
@@ -349,6 +351,7 @@ header div {
   align-content: space-around;
   align-items: center;
   justify-content: flex-start;
+  text-decoration: none;
 }
 
 .article-meta {
@@ -407,15 +410,47 @@ header div {
 /* Fonts */
 @font-face {
   font-family: "Noto sans";
-  src: url("/fonts/NotoSans-Regular.ttf") format("truetype");
+  src: url("/fonts/notosans-regular.woff2") format("woff2"),
+    url("/fonts/notosans-regular.woff") format("woff"),
+    url("/fonts/notosans-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-@font-face {
-  font-family: "Gidole";
-  src: url("/fonts/Gidole-Regular.ttf") format("truetype");
-}
+
 @font-face {
   font-family: "Hack";
-  src: url("/fonts/Hack-Regular.ttf") format("truetype");
+  src: url("/fonts/hack-regular.woff2") format("woff2"),
+    url("/fonts/hack-regular.woff") format("woff"),
+    url("/fonts/hack-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/fonts/hack-italic.woff2") format("woff2"),
+    url("/fonts/hack-italic.woff") format("woff"),
+    url("/fonts/hack-italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("/fonts/hack-bold.woff2") format("woff2"),
+    url("/fonts/hack-bold.woff") format("woff"),
+    url("/fonts/hack-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gidole";
+  src: url("/fonts/gidole-regular.woff2") format("woff2"),
+    url("/fonts/gidole-regular.woff") format("woff"),
+    url("/fonts/gidole-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Arta HighlightJS theme */

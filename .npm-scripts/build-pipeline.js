@@ -144,7 +144,7 @@ module.exports = {
             "styles",
             "svgs",
             "index",
-            "contact",
+            "work",
             "js"
           ]);
         }
@@ -171,7 +171,7 @@ module.exports = {
             "styles",
             "svgs",
             "index",
-            "contact",
+            "work",
             "js"
           ]);
         }

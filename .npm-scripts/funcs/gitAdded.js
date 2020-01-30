@@ -3,7 +3,7 @@ const simpleGit = require("simple-git")();
 function getSplitTime(date) {
   return {
     year: date.getUTCFullYear(),
-    month: date.getUTCMonth(),
+    month: date.getUTCMonth() + 1,
     date: date.getUTCDate(),
     hours: date.getUTCHours(),
     minutes: date.getUTCMinutes(),

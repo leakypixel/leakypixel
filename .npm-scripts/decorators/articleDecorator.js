@@ -3,7 +3,7 @@ module.exports = function articleDecorator(config, item, meta) {
   const introEnd = item.content.indexOf("</p>");
   let cutoff;
   if (introEnd - introStart > config.cutoffLength) {
-    cutoff = item.content.indexOf(".", introStart + config.cutoffLength) + 1;
+    cutoff = item.content.indexOf("p>", introStart + config.cutoffLength) + 1;
   } else {
     cutoff = introEnd;
   }

@@ -37,3 +37,11 @@ service for fuel and related product delivery. As the only JavaScript developer
 on the team, I built a react and apollo based web application to interact with 
 an erlang graphql service that was being developed in tandem by other members 
 of the team.
+
+## Docker images
+*Docker, Jenkins, Docker Hub*
+
+I maintain a few docker images over on docker hub, some of which get around
+~100K pulls each version. Where appropriate, they're set up with repository
+links and external build services. The containerized apps themselves range from
+pulseaudio (system service) to jenkins (complex web app).

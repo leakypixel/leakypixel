@@ -16,7 +16,7 @@
     "url": "https://github.com/leakypixel/leakypixel/issues"
   },
   "dependencies": {
-    "ecstatic": "^4.1.2"
+    "ecstatic": "^4.1.4"
   },
   "homepage": "https://leakypixel.net/",
   "devDependencies": {

@@ -14,8 +14,8 @@ better late than never.
   things to be installed first which each have their own dependencies.
   
 * Tested a new design for an inline beer cooler, which worked but didn't provide
-  as much cooling as I was looking for. Back to the drawing board with this one
-  - maybe stacking peltiers would work better.
+  as much cooling as I was looking for. Back to the drawing board with this
+  one...  maybe stacking peltiers would work better.
 
 * First full-roof repairs on the garage roof - it's been a nightmare and
   continues to develop leaks, so I'm following advice from a friend and brushed

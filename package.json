@@ -31,7 +31,7 @@
     "imagemin-svgo": "^7.1.0",
     "recursive-readdir": "^2.2.2",
     "rimraf": "^3.0.2",
-    "simple-git": "^1.132.0",
+    "simple-git": "^3.5.0",
     "uglify-js": "^3.12.7"
   }
 }

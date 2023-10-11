@@ -1,0 +1,142 @@
+<html>
+  <head>
+    <style type="text/css">
+      :root {
+        --dim: 2.5vw; /* Dimensions */
+        --pxt: 12; /* Pixel total each dimension */
+        --stcl: #444; /* Stroke colour */
+        --txcl: #222; /* Text colour */
+        --bgcl: #fff; /* Background colour */
+        --accl: #306dd3; /* Action colour */
+
+
+        --poa: 3; /* Pixels outside angle */
+        --pxs: calc(var(--dim) / var(--pxt)); /* Pixel size */
+        --asos: calc(var(--pxs) * (var(--pxt) - var(--poa))); /* Angle start offset */
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --stcl: #cfcfcf; /* Stroke colour */
+          --txcl: #c2c2c2; /* Text colour */
+          --bgcl: #222; /* Background colour */
+          --accl: #9da2ff; /* Action colour */
+        }
+      }
+body {
+  font-family: "sans", Arial, sans-serif;
+    font-size: 14px;
+      background-color: var(--bgcl);
+      color: var(--txcl);
+
+}
+      .main {
+        box-sizing: border-box;
+        font-size: 1em;
+        line-height: 1.6em;
+        margin: 16vh auto 0;
+        max-width: 600px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      h1 {
+        font-size: 1.6em;
+        font-weight: normal;
+        line-height: 1.25em;
+        margin: 3vw 0 1vw 0;
+      }
+      a {
+        color: var(--accl);
+      }
+
+      p {
+        margin: 1vw 0;
+      }
+      .list {
+        margin-bottom: 0.6em;
+      }
+      .error {
+        color: #777;
+    font-size: .8em;
+    margin-top: 1.2vw;
+    text-transform: uppercase;
+      }
+      ul {
+        margin-top: 0.6em;
+          margin-bottom: 1vw;
+      }
+      li {
+        margin-top: 0.4em;
+
+      }
+
+
+.pixel {
+  clip-path: polygon(
+    0 0,
+    var(--dim) 0,
+    var(--dim) var(--asos),
+    calc(var(--dim) - var(--pxs)) var(--asos),
+    calc(var(--dim) - var(--pxs)) calc(var(--asos) + var(--pxs)),
+    calc(var(--dim) - (var(--pxs) * 2)) calc(var(--asos) + var(--pxs)),
+    calc(var(--dim) - (var(--pxs) * 2)) calc(var(--asos) + (var(--pxs) * 2)),
+    calc(var(--dim) - (var(--pxs) * 3)) calc(var(--asos) + (var(--pxs) * 2)),
+    var(--asos) var(--dim),
+    0 var(--dim)
+  );
+  width: var(--dim);
+  height: var(--dim);
+  background-color: var(--bgcl);
+  border: var(--pxs) solid var(--stcl);
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    to left,
+    var(--stcl) 0%,
+    var(--stcl) calc(var(--pxs) * 2),
+    var(--bgcl) calc(var(--pxs) * 2),
+    var(--bgcl) calc(var(--pxs) * 3)
+  ),
+  linear-gradient(
+    to left,
+    var(--stcl) 0%,
+    var(--stcl) calc(var(--pxs) * 1),
+    var(--bgcl) calc(var(--pxs) * 1),
+    var(--bgcl) calc(var(--pxs) * 3)
+  );
+  background-size: calc(var(--pxs) * 2) var(--pxs), calc(var(--pxs) * 3) calc(var(--pxs) * 2);
+  background-position: bottom right;
+}
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <section class="icon">
+        <div class="pixel"></div>
+      </section>
+      <section class="text">
+        <h1 class="heading">
+          This site can be reached
+        </h1>
+        <p class="subhead">
+          <strong>leakypixel.net</strong> is Craig Fletcher's personal site.
+        </p>
+        <p class="list">
+          Try:
+          <ul>
+            <li><a href="https://www.linkedin.com/in/craig-fletcher-30594868/">LinkedIn</a></li>
+            <li><a href="https://www.github.com/leakypixel">GitHub</a></li>
+            <li>Mailing me using hi at this domain</li>
+          </ul>
+        </p>
+        <p class="error">
+          ERR_NOT_IN_WOODS
+        </p>
+      </section>
+      <section class="buttons">
+      </section>
+      <section class="details">
+      </section>
+    </div>
+  </body>
+</html>

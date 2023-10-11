@@ -8,16 +8,6 @@ pipeline {
     CI = 'true'
   }
   stages {
-    stage('NPM install') {
-      steps {
-        sh 'npm install'
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
-    }
     stage('SSH transfer') {
       steps {
         sshPublisher(
@@ -30,8 +20,7 @@ pipeline {
                 sshTransfer(
                   cleanRemote: true,
                   remoteDirectory: "leakypixel.net",
-                  sourceFiles: "output/",
-                  removePrefix: "output/"
+                  sourceFiles: "index.html",
                 )
               ])
           ]
